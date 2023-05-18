@@ -5,3 +5,6 @@ export const apiUserRead = () =>
 
 export const apiUserCreate = data =>
     axiosClient.post('/api/user/create', data)
+
+export const apiUserLogin = data =>
+    axiosClient.post('/api/user/login', data)

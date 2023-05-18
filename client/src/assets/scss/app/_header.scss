@@ -18,6 +18,14 @@
 
         .header-left {
             text-align: center;
+            padding: 10px;
+
+            &:hover {
+                background: $light-color;
+                border-radius: 10px;
+                transition: $transition;
+                cursor: pointer;
+            }
 
             .left-title {
                 display: block;
@@ -106,13 +114,7 @@
     .header-wrapper {
         .header-container {
             max-width: 95%;
-        }
-    }
-}
 
-@media (max-width: (900px)) {
-    .header-wrapper {
-        .header-container {
             .header-right {
                 .right-main {
                     .right-btn {

@@ -46,6 +46,39 @@ const userController = {
                     .catch(next)
             })
             .catch(next)
+    },
+
+    handleLogin: (req, res, next) => {
+        const username = req.body.username
+        const password = req.body.password
+
+        if (!username || !password)
+            return res.status(500).json({
+                errCode: 1,
+                errMessage: 'Vui lòng điền đầy đủ thông tin.'
+            })
+
+        userModel.findOne({ username })
+            .then(user => {
+                if (!user)
+                    return res.status(500).json({
+                        errMessage: 'Tên tài khoản không tồn tại.'
+                    })
+
+                const rs = bcrypt.compareSync(password, user.password)
+                if (!rs)
+                    return res.status(500).json({
+                        errMessage: 'Mật khẩu không chính xác.'
+                    })
+
+                const userInfo = user.toObject()
+                delete userInfo.password
+                return res.status(200).json({
+                    errCode: 0,
+                    user: userInfo
+                })
+            })
+            .catch(next)
     }
 }
 

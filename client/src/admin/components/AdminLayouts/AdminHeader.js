@@ -2,19 +2,22 @@ import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom'
 import { path } from '../../../utils'
 import { dataHeader } from '../../data'
+import { connect } from 'react-redux'
+import { processLogout } from '../../../redux/actions'
 
-function AdminHeader() {
+function AdminHeader({ userInfo, processLogout }) {
     const [menu, setMenu] = useState(false)
+    const firstname = userInfo.fullname.substring(userInfo.fullname.lastIndexOf(' '), userInfo.fullname.length)
 
     return (
         <div className='header-wrapper'>
             <div className='header-container'>
-                <div className='header-left'>
-                    <Link className='left-title' to={path.ADMIN_USER_READ}>
+                <div onClick={() => processLogout()} className='header-left'>
+                    <div className='left-title'>
                         Admin
-                    </Link>
+                    </div>
                     <div className='left-desc'>
-                        Quản lý thú cưng
+                        {firstname} <i className="fa-solid fa-right-from-bracket"></i>
                     </div>
                 </div>
                 <div className='header-right'>
@@ -36,4 +39,12 @@ function AdminHeader() {
     );
 }
 
-export default AdminHeader;
+const mapStateToProps = state => ({
+    userInfo: state.user.userInfo
+})
+
+const mapActionsToProps = {
+    processLogout
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(AdminHeader)

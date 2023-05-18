@@ -35,16 +35,16 @@ function AdminUserCreate() {
                 </div>
                 <div className='inputs'>
                     <div className='item'>
-                        <input {...register('fullname', { required: true })} placeholder='Tên đầy đủ' />
+                        <input autoComplete="off" {...register('fullname', { required: true })} placeholder='Tên đầy đủ' />
                     </div>
                     <div className='item'>
-                        <input {...register('username', { required: true })} placeholder='Tài khoản' />
+                        <input autoComplete="off" {...register('username', { required: true })} placeholder='Tài khoản' />
                     </div>
                     <div className='item'>
-                        <input {...register('password', { required: true })} placeholder='Mật khẩu' />
+                        <input type='password' autoComplete="off" {...register('password', { required: true })} placeholder='Mật khẩu' />
                     </div>
                     <div className='item'>
-                        <input {...register("cpassword", {
+                        <input type='password' autoComplete="off" {...register("cpassword", {
                             validate: (value) => {
                                 const { password } = getValues()
                                 password === value || setErrMessage('Mật khẩu không chính xác.')

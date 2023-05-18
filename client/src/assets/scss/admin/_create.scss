@@ -64,7 +64,6 @@
     }
 
     button {
-        text-decoration: none;
         padding: 10px 20px;
         background: $primary-color;
         color: $white-color;
@@ -77,6 +76,35 @@
 
         &:hover {
             opacity: $opacity;
+            transition: $transition;
+            cursor: pointer;
+        }
+    }
+}
+
+.admin-login-wrapper {
+    height: 100vh;
+    background: $light-color;
+    text-align: center;
+    align-items: center;
+    display: flex;
+
+    .error-mess {
+        position: relative;
+    }
+
+    a {
+        display: block;
+        text-decoration: none;
+        color: $black-color;
+        font-weight: $font-weight-bold;
+        font-size: 16px;
+        white-space: nowrap;
+        margin: 20px auto 0;
+        width: fit-content;
+
+        &:hover {
+            color: $primary-color;
             transition: $transition;
             cursor: pointer;
         }
