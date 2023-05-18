@@ -1,3 +1,15 @@
+$primary-color: #00b3a0;
+$light-color: #f5f5f5;
+$white-color: #fff;
+$black-color: #333;
+$max-width: 1000px;
+$header-height: 80px;
+$opacity: 0.8;
+$transition: 0.5s;
+$font-weight-bold: 700;
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -5,5 +17,20 @@
 }
 
 html {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
+
+.app-wrapper {
+    max-width: $max-width;
+    margin: $header-height auto 0;
+}
+
+@media (max-width: ($max-width + 50px)) {
+    .app-wrapper {
+        max-width: 95%;
+    }
+}
+
+@import './app/header';
+@import './app/footer';

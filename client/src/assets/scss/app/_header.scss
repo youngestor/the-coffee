@@ -1,0 +1,185 @@
+.header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $header-height;
+    box-shadow: 0 0 4px $black-color;
+    background: $white-color;
+    z-index: 1;
+
+    .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        max-width: $max-width;
+        margin: 0 auto;
+
+        .header-left {
+            text-align: center;
+
+            .left-title {
+                display: block;
+                color: $primary-color;
+                text-decoration: none;
+                font-size: 26px;
+                font-weight: $font-weight-bold;
+                text-shadow: 2px 2px 4px $black-color;
+                font-style: italic;
+            }
+
+            .left-desc {
+                font-size: 14px;
+                font-weight: $font-weight-bold;
+                opacity: $opacity;
+                color: $black-color;
+            }
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+
+            .right-icon-menu {
+                display: none;
+            }
+
+            .right-main {
+                display: flex;
+                gap: 10px;
+
+                .right-icon-close {
+                    display: none;
+                }
+
+                .right-item {
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    letter-spacing: 1px;
+                    color: $black-color;
+                    font-size: 14px;
+                    font-weight: $font-weight-bold;
+                    opacity: $opacity;
+                    padding: 10px;
+
+                    &:hover {
+                        color: $primary-color;
+                        transition: $transition;
+                    }
+
+                    &.active {
+                        background: $primary-color;
+                        color: $white-color;
+                        border-radius: 4px;
+                        transition: $transition;
+                    }
+                }
+
+                .right-cart {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-left: 40px;
+                    padding: 10px;
+                    border-radius: 10px;
+                    background: $primary-color;
+                    color: $white-color;
+                    font-weight: $font-weight-bold;
+                    cursor: pointer;
+
+                    i {
+                        margin-left: 5px;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: ($max-width + 50px)) {
+    .header-wrapper {
+        .header-container {
+            max-width: 95%;
+        }
+    }
+}
+
+@media (max-width: (900px)) {
+    .header-wrapper {
+        .header-container {
+            .header-right {
+                .right-main {
+                    .right-cart {
+                        margin-left: 0;
+
+                        span {
+                            display: none;
+                        }
+
+                        i {
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: (800px)) {
+    .header-wrapper {
+        .header-container {
+            align-items: start;
+
+            .header-left {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .header-right {
+                flex-direction: column;
+
+                .right-icon-menu {
+                    display: block;
+                    width: 100%;
+                    font-size: 30px;
+                    text-align: right;
+                    line-height: 80px;
+                    cursor: pointer;
+                }
+
+                .right-main {
+                    opacity: 1;
+                    transition: $transition;
+
+                    &.close {
+                        right: -100%;
+                        opacity: 0;
+                    }
+
+                    .right-icon-close {
+                        display: block;
+                        text-align: right;
+                        font-size: 30px;
+                        cursor: pointer;
+                    }
+
+                    flex-direction: column;
+                    padding: 20px;
+                    background: white;
+                    box-shadow: 0 0 2px $black-color;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    height: 100vh;
+                    width: 40vw;
+                    min-width: 280px;
+                }
+            }
+        }
+    }
+}
