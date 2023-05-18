@@ -21,16 +21,22 @@ html {
     font-family: 'Quicksand', sans-serif;
 }
 
-.app-wrapper {
+.app-wrapper,
+.admin-wrapper {
     max-width: $max-width;
     margin: $header-height auto 0;
 }
 
 @media (max-width: ($max-width + 50px)) {
-    .app-wrapper {
+
+    .app-wrapper,
+    .admin-wrapper {
         max-width: 95%;
     }
 }
 
 @import './app/header';
 @import './app/footer';
+
+@import './admin/read';
+@import './admin/create';

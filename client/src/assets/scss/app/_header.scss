@@ -76,7 +76,7 @@
                     }
                 }
 
-                .right-cart {
+                .right-btn {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -84,9 +84,13 @@
                     padding: 10px;
                     border-radius: 10px;
                     background: $primary-color;
-                    color: $white-color;
                     font-weight: $font-weight-bold;
-                    cursor: pointer;
+
+                    a {
+                        color: $white-color;
+                        text-decoration: none;
+                        cursor: pointer;
+                    }
 
                     i {
                         margin-left: 5px;
@@ -111,7 +115,7 @@
         .header-container {
             .header-right {
                 .right-main {
-                    .right-cart {
+                    .right-btn {
                         margin-left: 0;
 
                         span {

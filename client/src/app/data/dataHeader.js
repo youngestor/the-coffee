@@ -10,12 +10,12 @@ export const dataHeader = [
         path: path.PET
     },
     {
-        name: 'Tin tức',
-        path: path.NEWS
+        name: 'Phụ kiện',
+        path: path.ACCESSORY
     },
     {
-        name: 'Giới thiệu',
-        path: path.INTRO
+        name: 'Tin tức',
+        path: path.NEWS
     },
     {
         name: 'Liên hệ',

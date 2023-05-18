@@ -1,0 +1,84 @@
+.admin-create-wrapper {
+    width: 100%;
+    background: $light-color;
+    padding: 40px;
+
+    .title {
+        font-weight: $font-weight-bold;
+        color: $black-color;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .inputs {
+        .item {
+            margin: 20px 0;
+
+            input {
+                border: 2px solid $black-color;
+                padding: 10px;
+                outline: none;
+                transition: $transition;
+                font-size: 18px;
+                border-radius: 4px;
+                width: 100%;
+                max-width: 400px;
+
+                &:focus {
+                    border: 2px solid $primary-color;
+                }
+            }
+
+            input[type="file"] {
+                display: none;
+            }
+
+            .file-upload {
+                border: 2px solid $black-color;
+                display: inline-block;
+                padding: 8px 20px;
+                color: $black-color;
+                font-size: 18px;
+                cursor: pointer;
+            }
+        }
+
+        .review-img {
+            display: block;
+            margin-top: 20px;
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border: 2px solid $black-color;
+        }
+    }
+
+    .error-mess {
+        position: absolute;
+        color: red;
+    }
+
+    .success-mess {
+        position: absolute;
+        color: green;
+    }
+
+    button {
+        text-decoration: none;
+        padding: 10px 20px;
+        background: $primary-color;
+        color: $white-color;
+        border-radius: 4px;
+        font-weight: $font-weight-bold;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        margin-top: 20px;
+
+        &:hover {
+            opacity: $opacity;
+            transition: $transition;
+            cursor: pointer;
+        }
+    }
+}

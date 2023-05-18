@@ -1,6 +1,5 @@
 import React from 'react'
 import AdminHeader from './AdminHeader'
-import AdminFooter from './AdminFooter'
 
 export default function AdminLayouts({ children }) {
     return (
@@ -9,7 +8,6 @@ export default function AdminLayouts({ children }) {
             <div className='admin-wrapper'>
                 {children}
             </div>
-            <AdminFooter />
         </React.Fragment>
     )
 }

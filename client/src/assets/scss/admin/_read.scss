@@ -1,0 +1,64 @@
+.admin-read-wrapper {
+    padding: 40px 0;
+
+    .create {
+        margin-bottom: 40px;
+
+        .btn-create {
+            text-decoration: none;
+            padding: 10px;
+            background: $primary-color;
+            color: $white-color;
+            border-radius: 4px;
+            font-weight: $font-weight-bold;
+            font-size: 18px;
+
+            &:hover {
+                opacity: $opacity;
+                transition: $transition;
+                cursor: pointer;
+            }
+        }
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid $black-color;
+        text-align: left;
+        padding: 10px;
+    }
+
+    td i:hover {
+        opacity: $opacity;
+        transition: $transition;
+        cursor: pointer;
+    }
+
+    td i.btn-edit:hover {
+        color: orange;
+    }
+
+    td i.btn-delete:hover {
+        color: red;
+    }
+
+
+    tbody tr:nth-child(odd) {
+        background: $primary-color;
+        color: $white-color;
+    }
+}
+
+@media (max-width: (500px)) {
+    .admin-read-wrapper {
+        table {
+            display: block;
+            overflow-x: auto;
+        }
+    }
+}

@@ -1,43 +1,43 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { apiUserRead } from '../../../services'
+import { apiNewsRead } from '../../../services'
 import { path } from '../../../utils'
 
-function AdminUserRead() {
-    const [users, setUsers] = useState([])
+function AdminNewsRead() {
+    const [news, setNews] = useState([])
 
     useEffect(() => {
         fetchData()
     }, [])
 
     const fetchData = async () => {
-        const res = await apiUserRead()
-        setUsers(res.data.user)
+        const res = await apiNewsRead()
+        setNews(res.data.news)
     }
 
     return (
         <div className='admin-read-wrapper'>
             <div className='create'>
-                <Link to={`${path.ADMIN}/${path.ADMIN_USER_CREATE}`} className='btn-create'>
-                    Thêm tài khoản
+                <Link to={`${path.ADMIN}/${path.ADMIN_NEWS_CREATE}`} className='btn-create'>
+                    Thêm tin tức
                 </Link>
             </div>
             <table>
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Tên người dùng</th>
-                        <th>Tên tài khoản</th>
+                        <th>Tác giả</th>
+                        <th>Tiêu đề</th>
                         <th>Sửa</th>
                         <th>Xóa</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {users && users.map((item, index) =>
+                    {news && news.map((item, index) =>
                         <tr key={item._id}>
                             <td>{++index}</td>
-                            <td>{item.fullname}</td>
-                            <td>{item.username}</td>
+                            <td>{item.author}</td>
+                            <td>{item.title}</td>
                             <td>
                                 <i className="fa-solid fa-pen btn-edit"></i>
                             </td>
@@ -52,4 +52,4 @@ function AdminUserRead() {
     )
 }
 
-export default AdminUserRead;
+export default AdminNewsRead;

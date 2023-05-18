@@ -14,13 +14,13 @@ function Footer() {
                             </NavLink>
                         </div>
                         <div className='item'>
-                            <NavLink to={path.NEWS}>
-                                Tin tức
+                            <NavLink to={path.ACCESSORY}>
+                                Phụ kiện
                             </NavLink>
                         </div>
                         <div className='item'>
-                            <NavLink to={path.INTRO}>
-                                Giới thiệu
+                            <NavLink to={path.NEWS}>
+                                Tin tức
                             </NavLink>
                         </div>
                     </div>
