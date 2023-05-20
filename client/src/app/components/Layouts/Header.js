@@ -11,10 +11,10 @@ function Header() {
             <div className='header-container'>
                 <div className='header-left'>
                     <Link className='left-title' to={path.HOME}>
-                        Shop Pet
+                        The Coffee
                     </Link>
                     <div className='left-desc'>
-                        Thế giới thú cưng
+                        Thế giới cà phê
                     </div>
                 </div>
                 <div className='header-right'>

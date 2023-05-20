@@ -4,7 +4,7 @@ const slug = require('mongoose-slug-generator')
 const Schema = mongoose.Schema
 mongoose.plugin(slug)
 
-const Accessory = new Schema({
+const Product = new Schema({
     name: String,
     desc: String,
     price: String,
@@ -13,10 +13,10 @@ const Accessory = new Schema({
     author: String,
     slug: {
         type: String,
-        slug: 'title'
+        slug: 'name'
     },
 }, {
     timestamps: true
 })
 
-module.exports = mongoose.model('Accessory', Accessory)
+module.exports = mongoose.model('Product', Product)

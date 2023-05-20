@@ -1,9 +1,9 @@
 const userModel = require('./userModel')
 const newsModel = require('./newsModel')
-const accessoryModel = require('./accessoryModel')
+const productModel = require('./productModel')
 
 module.exports = {
     userModel,
     newsModel,
-    accessoryModel,
+    productModel,
 }

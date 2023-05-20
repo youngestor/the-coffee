@@ -1,17 +1,17 @@
-.admin-read-wrapper {
-    padding: 40px 0;
+.admin-list-wrapper {
+    padding: $big-space 0;
 
     .create {
-        margin-bottom: 40px;
+        margin-bottom: $big-space;
 
         .btn-create {
             text-decoration: none;
-            padding: 10px;
+            padding: $small-space;
             background: $primary-color;
             color: $white-color;
-            border-radius: 4px;
+            border-radius: $small-radius;
             font-weight: $font-weight-bold;
-            font-size: 18px;
+            font-size: $medium-text;
 
             &:hover {
                 opacity: $opacity;
@@ -26,11 +26,18 @@
         width: 100%;
     }
 
+    td img {
+        width: $list-img-width;
+        height: $list-img-height;
+        object-fit: cover;
+        border: 2px solid $black-color;
+    }
+
     td,
     th {
         border: 1px solid $black-color;
         text-align: left;
-        padding: 10px;
+        padding: $small-space;
     }
 
     td i:hover {
@@ -40,11 +47,11 @@
     }
 
     td i.btn-edit {
-        color: black;
+        color: $black-color;
     }
 
     tbody tr:nth-child(odd) i.btn-edit {
-        color: white;
+        color: $white-color;
     }
 
     tbody tr:nth-child(odd) {
@@ -62,7 +69,7 @@
 }
 
 @media (max-width: (500px)) {
-    .admin-read-wrapper {
+    .admin-list-wrapper {
         table {
             display: block;
             overflow-x: auto;

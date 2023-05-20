@@ -18,11 +18,11 @@
 
         .header-left {
             text-align: center;
-            padding: 10px;
+            padding: $small-space;
 
             &:hover {
                 background: $light-color;
-                border-radius: 10px;
+                border-radius: $medium-radius;
                 transition: $transition;
                 cursor: pointer;
             }
@@ -31,14 +31,14 @@
                 display: block;
                 color: $primary-color;
                 text-decoration: none;
-                font-size: 26px;
+                font-size: $big-text;
                 font-weight: $font-weight-bold;
                 text-shadow: 2px 2px 4px $black-color;
                 font-style: italic;
             }
 
             .left-desc {
-                font-size: 14px;
+                font-size: $small-text;
                 font-weight: $font-weight-bold;
                 opacity: $opacity;
                 color: $black-color;
@@ -55,7 +55,7 @@
 
             .right-main {
                 display: flex;
-                gap: 10px;
+                gap: $small-space;
 
                 .right-icon-close {
                     display: none;
@@ -66,10 +66,10 @@
                     text-decoration: none;
                     letter-spacing: 1px;
                     color: $black-color;
-                    font-size: 14px;
+                    font-size: $small-text;
                     font-weight: $font-weight-bold;
                     opacity: $opacity;
-                    padding: 10px;
+                    padding: $small-space;
 
                     &:hover {
                         color: $primary-color;
@@ -79,7 +79,7 @@
                     &.active {
                         background: $primary-color;
                         color: $white-color;
-                        border-radius: 4px;
+                        border-radius: $small-radius;
                         transition: $transition;
                     }
                 }
@@ -88,9 +88,9 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    margin-left: 40px;
-                    padding: 10px;
-                    border-radius: 10px;
+                    margin-left: $big-space;
+                    padding: $small-space;
+                    border-radius: $medium-radius;
                     background: $primary-color;
                     font-weight: $font-weight-bold;
 
@@ -102,7 +102,7 @@
 
                     i {
                         margin-left: 5px;
-                        font-size: 20px;
+                        font-size: $medium-text;
                     }
                 }
             }
@@ -134,7 +134,7 @@
     }
 }
 
-@media (max-width: (800px)) {
+@media (max-width: (700px)) {
     .header-wrapper {
         .header-container {
             align-items: start;
@@ -152,7 +152,7 @@
                 .right-icon-menu {
                     display: block;
                     width: 100%;
-                    font-size: 30px;
+                    font-size: $big-text;
                     text-align: right;
                     line-height: 80px;
                     cursor: pointer;
@@ -170,12 +170,12 @@
                     .right-icon-close {
                         display: block;
                         text-align: right;
-                        font-size: 30px;
+                        font-size: $big-text;
                         cursor: pointer;
                     }
 
                     flex-direction: column;
-                    padding: 20px;
+                    padding: $medium-space;
                     background: white;
                     box-shadow: 0 0 2px $black-color;
                     position: absolute;

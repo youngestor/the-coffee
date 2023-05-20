@@ -14,9 +14,9 @@ import AdminNewsRead from './pages/AdminNews/AdminNewsRead'
 import AdminNewsCreate from './pages/AdminNews/AdminNewsCreate'
 import AdminNewsUpdate from './pages/AdminNews/AdminNewsUpdate'
 
-import AdminAccessoryRead from './pages/AdminAccessory/AdminAccessoryRead'
-import AdminAccessoryCreate from './pages/AdminAccessory/AdminAccessoryCreate'
-import AdminAccessoryUpdate from './pages/AdminAccessory/AdminAccessoryUpdate'
+import AdminProductRead from './pages/AdminProduct/AdminProductRead'
+import AdminProductCreate from './pages/AdminProduct/AdminProductCreate'
+import AdminProductUpdate from './pages/AdminProduct/AdminProductUpdate'
 
 function Admin({ isLoggedIn }) {
     return (
@@ -32,9 +32,9 @@ function Admin({ isLoggedIn }) {
                 <Route path={path.ADMIN_NEWS_CREATE} element={<AdminNewsCreate />} />
                 <Route path={path.ADMIN_NEWS_UPDATE} element={<AdminNewsUpdate />} />
 
-                <Route path={path.ADMIN_ACCESSORY_READ} element={<AdminAccessoryRead />} />
-                <Route path={path.ADMIN_ACCESSORY_CREATE} element={<AdminAccessoryCreate />} />
-                <Route path={path.ADMIN_ACCESSORY_UPDATE} element={<AdminAccessoryUpdate />} />
+                <Route path={path.ADMIN_PRODUCT_READ} element={<AdminProductRead />} />
+                <Route path={path.ADMIN_PRODUCT_CREATE} element={<AdminProductCreate />} />
+                <Route path={path.ADMIN_PRODUCT_UPDATE} element={<AdminProductUpdate />} />
 
                 <Route path={path.ALL} element={<Navigate to={`/${path.ALL}`} />} />
             </Routes>

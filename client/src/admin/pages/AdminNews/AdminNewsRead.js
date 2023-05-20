@@ -23,7 +23,7 @@ function AdminNewsRead() {
     }
 
     return (
-        <div className='admin-read-wrapper'>
+        <div className='admin-list-wrapper'>
             <div className='create'>
                 <Link to={`${path.ADMIN}/${path.ADMIN_NEWS_CREATE}`} className='btn-create'>
                     Thêm tin tức
@@ -33,8 +33,9 @@ function AdminNewsRead() {
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Tác giả</th>
                         <th>Tiêu đề</th>
+                        <th>Hình ảnh</th>
+                        <th>Tác giả</th>
                         <th>Sửa</th>
                         <th>Xóa</th>
                     </tr>
@@ -43,8 +44,11 @@ function AdminNewsRead() {
                     {news && news.map((item, index) =>
                         <tr key={item._id}>
                             <td>{++index}</td>
-                            <td>{item.author}</td>
                             <td>{item.title}</td>
+                            <td>
+                                <img src={item.image} alt={item.title} />
+                            </td>
+                            <td>{item.author}</td>
                             <td>
                                 <Link to={`${path.ADMIN}/${path.ADMIN_NEWS_UPDATE}`} state={item}>
                                     <i className="fa-solid fa-pen btn-edit"></i>

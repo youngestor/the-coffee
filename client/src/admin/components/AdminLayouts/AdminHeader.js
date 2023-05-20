@@ -7,7 +7,6 @@ import { processLogout } from '../../../redux/actions'
 
 function AdminHeader({ userInfo, processLogout }) {
     const [menu, setMenu] = useState(false)
-    const firstname = userInfo.fullname.substring(userInfo.fullname.lastIndexOf(' '), userInfo.fullname.length)
 
     return (
         <div className='header-wrapper'>
@@ -17,7 +16,7 @@ function AdminHeader({ userInfo, processLogout }) {
                         Admin
                     </div>
                     <div className='left-desc'>
-                        {firstname} <i className="fa-solid fa-right-from-bracket"></i>
+                        {userInfo.fullname} <i className="fa-solid fa-right-from-bracket"></i>
                     </div>
                 </div>
                 <div className='header-right'>

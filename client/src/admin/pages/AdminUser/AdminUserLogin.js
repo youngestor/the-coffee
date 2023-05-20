@@ -24,7 +24,7 @@ function Login({ loginSuccess }) {
 
     return (
         <div className='admin-login-wrapper'>
-            <form onSubmit={handleSubmit(onSubmit)} className='admin-create-wrapper'>
+            <form onSubmit={handleSubmit(onSubmit)} className='admin-form-wrapper'>
                 <div className='title'>
                     Đăng nhập
                 </div>

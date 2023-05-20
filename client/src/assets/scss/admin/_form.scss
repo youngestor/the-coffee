@@ -1,26 +1,26 @@
-.admin-create-wrapper {
+.admin-form-wrapper {
     width: 100%;
     background: $light-color;
-    padding: 40px;
+    padding: $big-space;
 
     .title {
         font-weight: $font-weight-bold;
         color: $black-color;
-        font-size: 28px;
-        margin-bottom: 20px;
+        font-size: $big-text;
+        margin-bottom: $medium-space;
     }
 
     .inputs {
         .item {
-            margin: 20px 0;
+            margin: $medium-space 0;
 
             input {
                 border: 2px solid $black-color;
-                padding: 10px;
+                padding: $small-space;
                 outline: none;
                 transition: $transition;
-                font-size: 18px;
-                border-radius: 4px;
+                font-size: $medium-text;
+                border-radius: $small-radius;
                 width: 100%;
                 max-width: 400px;
 
@@ -36,18 +36,18 @@
             .file-upload {
                 border: 2px solid $black-color;
                 display: inline-block;
-                padding: 8px 20px;
+                padding: 8px $medium-space;
                 color: $black-color;
-                font-size: 18px;
+                font-size: $medium-text;
                 cursor: pointer;
             }
         }
 
         .review-img {
             display: block;
-            margin-top: 20px;
-            width: 300px;
-            height: 200px;
+            margin-top: $medium-space;
+            width: $review-img-width;
+            height: $review-img-height;
             object-fit: cover;
             border: 2px solid $black-color;
         }
@@ -64,15 +64,15 @@
     }
 
     button {
-        padding: 10px 20px;
+        padding: $small-space $medium-space;
         background: $primary-color;
         color: $white-color;
-        border-radius: 4px;
+        border-radius: $small-radius;
         font-weight: $font-weight-bold;
-        font-size: 18px;
+        font-size: $medium-text;
         border: none;
         outline: none;
-        margin-top: 20px;
+        margin-top: $medium-space;
 
         &:hover {
             opacity: $opacity;
@@ -98,9 +98,9 @@
         text-decoration: none;
         color: $black-color;
         font-weight: $font-weight-bold;
-        font-size: 16px;
+        font-size: $medium-text;
         white-space: nowrap;
-        margin: 20px auto 0;
+        margin: $medium-space auto 0;
         width: fit-content;
 
         &:hover {

@@ -1,9 +1,8 @@
 export const path = {
     ALL: '*',
     HOME: '/',
-    PET: '/pet',
+    PRODUCT: '/product',
     NEWS: '/news',
-    ACCESSORY: '/accessory',
     CONTACT: '/contact',
     CART: '/cart',
 
@@ -13,15 +12,9 @@ export const path = {
     ADMIN_USER_CREATE: 'admin-user-create',
     ADMIN_USER_UPDATE: 'admin-user-update',
 
-    ADMIN_PET_READ: 'admin-pet-read',
-    ADMIN_PET_CREATE: 'admin-pet-create',
-
-    ADMIN_TYPE_READ: 'admin-type-read',
-    ADMIN_TYPE_CREATE: 'admin-type-create',
-
-    ADMIN_ACCESSORY_READ: 'admin-accessory-read',
-    ADMIN_ACCESSORY_CREATE: 'admin-accessory-create',
-    ADMIN_ACCESSORY_UPDATE: 'admin-accessory-update',
+    ADMIN_PRODUCT_READ: 'admin-product-read',
+    ADMIN_PRODUCT_CREATE: 'admin-product-create',
+    ADMIN_PRODUCT_UPDATE: 'admin-product-update',
 
     ADMIN_NEWS_READ: 'admin-news-read',
     ADMIN_NEWS_CREATE: 'admin-news-create',

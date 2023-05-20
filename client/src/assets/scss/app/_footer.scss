@@ -18,22 +18,22 @@
             justify-content: space-between;
             color: $black-color;
             width: 100%;
-            gap: 20px;
-            padding: 20px 0;
+            gap: $medium-space;
+            padding: $medium-space 0;
 
             .top-list {
                 .title {
                     font-weight: $font-weight-bold;
                     font-size: 18px;
-                    margin-bottom: 10px;
+                    margin-bottom: $small-space;
                     white-space: nowrap;
                 }
 
                 .item {
-                    margin-top: 10px;
+                    margin-top: $small-space;
 
                     i {
-                        margin-right: 10px;
+                        margin-right: $small-space;
                     }
 
                     a {
@@ -57,7 +57,7 @@
             background: $primary-color;
             color: $white-color;
             text-align: center;
-            padding: 10px 0;
+            padding: $small-space 0;
         }
     }
 }

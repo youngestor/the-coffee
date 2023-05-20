@@ -23,7 +23,7 @@ function AdminUserRead() {
     }
 
     return (
-        <div className='admin-read-wrapper'>
+        <div className='admin-list-wrapper'>
             <div className='create'>
                 <Link to={`${path.ADMIN}/${path.ADMIN_USER_CREATE}`} className='btn-create'>
                     Thêm tài khoản

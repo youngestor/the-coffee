@@ -5,9 +5,9 @@ import FileBase64 from 'react-file-base64'
 import { connect } from 'react-redux'
 
 import { path } from '../../../utils'
-import { apiAccessoryCreate } from '../../../services'
+import { apiProductCreate } from '../../../services'
 
-function AdminAccessoryCreate({ userInfo }) {
+function AdminProductCreate({ userInfo }) {
     const { register, handleSubmit } = useForm()
     const [image, setImage] = useState('')
     const [errMessage, setErrMessage] = useState()
@@ -21,9 +21,9 @@ function AdminAccessoryCreate({ userInfo }) {
             data.image = image
         }
         try {
-            const res = await apiAccessoryCreate(data)
-            if (res.data.accessory) {
-                setSuccess('Thêm phụ kiện mới thành công.')
+            const res = await apiProductCreate(data)
+            if (res.data.product) {
+                setSuccess('Thêm sản phẩm mới thành công.')
                 setErrMessage('')
                 setImage('')
                 e.target.reset()
@@ -34,15 +34,15 @@ function AdminAccessoryCreate({ userInfo }) {
     }
 
     return (
-        <div className='admin-read-wrapper'>
+        <div className='admin-list-wrapper'>
             <div className='create'>
-                <Link to={`${path.ADMIN}/${path.ADMIN_ACCESSORY_READ}`} className='btn-create'>
-                    Danh sách phụ kiện
+                <Link to={`${path.ADMIN}/${path.ADMIN_PRODUCT_READ}`} className='btn-create'>
+                    Danh sách sản phẩm
                 </Link>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)} className='admin-create-wrapper'>
+            <form onSubmit={handleSubmit(onSubmit)} className='admin-form-wrapper'>
                 <div className='title'>
-                    Thêm phụ kiện mới
+                    Thêm sản phẩm mới
                 </div>
                 <div className='inputs'>
                     <div className='item'>
@@ -84,4 +84,4 @@ const mapStateToProps = state => ({
     userInfo: state.user.userInfo
 })
 
-export default connect(mapStateToProps)(AdminAccessoryCreate)
+export default connect(mapStateToProps)(AdminProductCreate)

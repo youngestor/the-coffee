@@ -26,13 +26,13 @@ function AdminUserUpdate() {
     }
 
     return (
-        <div className='admin-read-wrapper'>
+        <div className='admin-list-wrapper'>
             <div className='create'>
                 <Link to={`${path.ADMIN}/${path.ADMIN_USER_READ}`} className='btn-create'>
                     Danh sách tài khoản
                 </Link>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)} className='admin-create-wrapper'>
+            <form onSubmit={handleSubmit(onSubmit)} className='admin-form-wrapper'>
                 <div className='title'>
                     Cập nhật tài khoản
                 </div>

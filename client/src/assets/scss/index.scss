@@ -2,11 +2,27 @@ $primary-color: #00b3a0;
 $light-color: #f5f5f5;
 $white-color: #fff;
 $black-color: #333;
-$max-width: 1000px;
-$header-height: 80px;
+
+$big-space: 40px;
+$medium-space: 20px;
+$small-space: 10px;
+
+$big-text: 30px;
+$medium-text: 18px;
+$small-text: 14px;
+
 $opacity: 0.8;
 $transition: 0.5s;
 $font-weight-bold: 700;
+
+$max-width: 1000px;
+$header-height: 80px;
+$review-img-width: 300px;
+$review-img-height: 200px;
+$list-img-width: 90px;
+$list-img-height: 60px;
+$medium-radius: 10px;
+$small-radius: 4px;
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
 
@@ -38,5 +54,5 @@ html {
 @import './app/header';
 @import './app/footer';
 
-@import './admin/read';
-@import './admin/create';
+@import './admin/list';
+@import './admin/form';

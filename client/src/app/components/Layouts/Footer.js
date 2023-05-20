@@ -9,13 +9,8 @@ function Footer() {
                     <div className='top-list'>
                         <div className='title'>Cửa hàng</div>
                         <div className='item'>
-                            <NavLink to={path.PET}>
-                                Thú cưng
-                            </NavLink>
-                        </div>
-                        <div className='item'>
-                            <NavLink to={path.ACCESSORY}>
-                                Phụ kiện
+                            <NavLink to={path.PRODUCT}>
+                                Sản phẩm
                             </NavLink>
                         </div>
                         <div className='item'>
@@ -23,12 +18,17 @@ function Footer() {
                                 Tin tức
                             </NavLink>
                         </div>
+                        <div className='item'>
+                            <NavLink to={path.CONTACT}>
+                                Liên hệ
+                            </NavLink>
+                        </div>
                     </div>
                     <div className='top-list'>
                         <div className='title'>Liên hệ</div>
                         <div className='item'>
                             <i className="fa-solid fa-envelope"></i>
-                            Email: shoppet@example.vn
+                            Email: thecoffee@example.vn
                         </div>
                         <div className='item'>
                             <i className="fa-solid fa-phone"></i>
@@ -37,7 +37,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className='footer-bottom'>
-                    @2023 Shop Pet. All rights reserved. Copyright by Shop Pet.
+                    @2023 The Coffee. All rights reserved. Copyright by The Coffee.
                 </div>
             </div>
         </div>

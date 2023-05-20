@@ -4,24 +4,24 @@ import { useForm } from 'react-hook-form'
 import FileBase64 from 'react-file-base64'
 
 import { path } from '../../../utils'
-import { apiAccessoryUpdate } from '../../../services'
+import { apiProductUpdate } from '../../../services'
 
-function AdminAccessoryUpdate() {
+function AdminProductUpdate() {
     const { register, handleSubmit } = useForm()
     const [image, setImage] = useState('')
     const [errMessage, setErrMessage] = useState()
 
     const location = useLocation()
-    const accessoryData = location.state
+    const productData = location.state
 
     const navigate = useNavigate()
 
     const onSubmit = async (data) => {
-        data._id = accessoryData._id
+        data._id = productData._id
         data.image = image
         try {
-            const res = await apiAccessoryUpdate(data)
-            if (res.data.accessory) {
+            const res = await apiProductUpdate(data)
+            if (res.data.product) {
                 navigate(-1)
             }
         } catch (error) {
@@ -30,28 +30,28 @@ function AdminAccessoryUpdate() {
     }
 
     return (
-        <div className='admin-read-wrapper'>
+        <div className='admin-list-wrapper'>
             <div className='create'>
-                <Link to={`${path.ADMIN}/${path.ADMIN_ACCESSORY_READ}`} className='btn-create'>
-                    Danh sách phụ kiện
+                <Link to={`${path.ADMIN}/${path.ADMIN_PRODUCT_READ}`} className='btn-create'>
+                    Danh sách sản phẩm
                 </Link>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)} className='admin-create-wrapper'>
+            <form onSubmit={handleSubmit(onSubmit)} className='admin-form-wrapper'>
                 <div className='title'>
-                    Cập nhật phụ kiện
+                    Cập nhật sản phẩm
                 </div>
                 <div className='inputs'>
                     <div className='item'>
-                        <input defaultValue={accessoryData.name} autoComplete="off" {...register('name', { required: true })} placeholder='Tên sản phẩm' />
+                        <input defaultValue={productData.name} autoComplete="off" {...register('name', { required: true })} placeholder='Tên sản phẩm' />
                     </div>
                     <div className='item'>
-                        <input defaultValue={accessoryData.desc} autoComplete="off" {...register('desc', { required: true })} placeholder='Mô tả sản phảm' />
+                        <input defaultValue={productData.desc} autoComplete="off" {...register('desc', { required: true })} placeholder='Mô tả sản phảm' />
                     </div>
                     <div className='item'>
-                        <input defaultValue={accessoryData.price} autoComplete="off" {...register('price', { required: true })} placeholder='Giá sản phẩm' />
+                        <input defaultValue={productData.price} autoComplete="off" {...register('price', { required: true })} placeholder='Giá sản phẩm' />
                     </div>
                     <div className='item'>
-                        <input defaultValue={accessoryData.quantity} type='number' autoComplete="off" {...register('quantity', { required: true })} placeholder='Số lượng' />
+                        <input defaultValue={productData.quantity} type='number' autoComplete="off" {...register('quantity', { required: true })} placeholder='Số lượng' />
                     </div>
                     <div className='item'>
                         <label className='file-upload'>
@@ -75,4 +75,4 @@ function AdminAccessoryUpdate() {
     )
 }
 
-export default AdminAccessoryUpdate
+export default AdminProductUpdate

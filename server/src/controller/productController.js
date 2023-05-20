@@ -1,11 +1,11 @@
-const { accessoryModel } = require('../model')
+const { productModel } = require('../model')
 
-const accessoryController = {
+const productController = {
     handleRead: (req, res, next) => {
-        accessoryModel.find()
-            .then(accessory => res.status(200).json({
+        productModel.find()
+            .then(product => res.status(200).json({
                 errCode: 0,
-                accessory
+                product
             }))
             .catch(next)
     },
@@ -22,11 +22,11 @@ const accessoryController = {
                 errMessage: 'Vui lòng điền đầy đủ thông tin.'
             })
 
-        const accessoryNew = new accessoryModel(req.body)
-        accessoryNew.save()
+        const productNew = new productModel(req.body)
+        productNew.save()
             .then(() => res.status(200).json({
                 errCode: 0,
-                accessory: accessoryNew
+                product: productNew
             }))
             .catch(next)
     },
@@ -44,10 +44,10 @@ const accessoryController = {
                 errMessage: 'Vui lòng điền đầy đủ thông tin.'
             })
 
-        accessoryModel.updateOne({ _id }, req.body)
-            .then(accessory => res.status(200).json({
+        productModel.updateOne({ _id }, req.body)
+            .then(product => res.status(200).json({
                 errCode: 0,
-                accessory
+                product
             }))
             .catch(next)
     },
@@ -60,13 +60,13 @@ const accessoryController = {
                 errMessage: 'Vui lòng điền đầy đủ thông tin.'
             })
 
-        accessoryModel.deleteOne({ _id })
-            .then(accessory => res.status(200).json({
+        productModel.deleteOne({ _id })
+            .then(product => res.status(200).json({
                 errCode: 0,
-                accessory
+                product
             }))
             .catch(next)
     }
 }
 
-module.exports = accessoryController
+module.exports = productController

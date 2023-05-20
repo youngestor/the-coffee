@@ -1,59 +1,63 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { apiAccessoryRead, apiAccessoryDelete } from '../../../services'
+import { apiProductRead, apiProductDelete } from '../../../services'
 import { path } from '../../../utils'
 
-function AdminAccessoryRead() {
-    const [accessory, setAccessory] = useState([])
+function AdminProductRead() {
+    const [product, setProduct] = useState([])
 
     useEffect(() => {
         fetchData()
     }, [])
 
     const fetchData = async () => {
-        const res = await apiAccessoryRead()
-        setAccessory(res.data.accessory)
+        const res = await apiProductRead()
+        setProduct(res.data.product)
     }
 
-    const deleteAccessory = async id => {
+    const deleteProduct = async id => {
         if (window.confirm("Xóa vĩnh viễn?")) {
-            await apiAccessoryDelete(id)
+            await apiProductDelete(id)
             fetchData()
         }
     }
 
     return (
-        <div className='admin-read-wrapper'>
+        <div className='admin-list-wrapper'>
             <div className='create'>
-                <Link to={`${path.ADMIN}/${path.ADMIN_ACCESSORY_CREATE}`} className='btn-create'>
-                    Thêm phụ kiện
+                <Link to={`${path.ADMIN}/${path.ADMIN_PRODUCT_CREATE}`} className='btn-create'>
+                    Thêm sản phẩm
                 </Link>
             </div>
             <table>
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Tác giả</th>
                         <th>Tên sản phẩm</th>
                         <th>Giá sản phẩm</th>
+                        <th>Hình ảnh</th>
+                        <th>Tác giả</th>
                         <th>Sửa</th>
                         <th>Xóa</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {accessory && accessory.map((item, index) =>
+                    {product && product.map((item, index) =>
                         <tr key={item._id}>
                             <td>{++index}</td>
-                            <td>{item.author}</td>
                             <td>{item.name}</td>
                             <td>{item.price}</td>
                             <td>
-                                <Link to={`${path.ADMIN}/${path.ADMIN_ACCESSORY_UPDATE}`} state={item}>
+                                <img src={item.image} alt={item.title} />
+                            </td>
+                            <td>{item.author}</td>
+                            <td>
+                                <Link to={`${path.ADMIN}/${path.ADMIN_PRODUCT_UPDATE}`} state={item}>
                                     <i className="fa-solid fa-pen btn-edit"></i>
                                 </Link>
                             </td>
                             <td>
-                                <i onClick={() => deleteAccessory(item._id)} className="fa-solid fa-trash btn-delete"></i>
+                                <i onClick={() => deleteProduct(item._id)} className="fa-solid fa-trash btn-delete"></i>
                             </td>
                         </tr>
                     )}
@@ -63,4 +67,4 @@ function AdminAccessoryRead() {
     )
 }
 
-export default AdminAccessoryRead;
+export default AdminProductRead;
