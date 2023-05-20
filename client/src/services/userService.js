@@ -8,3 +8,9 @@ export const apiUserCreate = data =>
 
 export const apiUserLogin = data =>
     axiosClient.post('/api/user/login', data)
+
+export const apiUserUpdate = data =>
+    axiosClient.put('/api/user/update', data)
+
+export const apiUserDelete = id =>
+    axiosClient.post('/api/user/delete', { _id: id })

@@ -6,6 +6,8 @@ const userRoute = app => {
     router.get('/read', userController.handleRead)
     router.post('/create', userController.handleCreate)
     router.post('/login', userController.handleLogin)
+    router.put('/update', userController.handleUpdate)
+    router.post('/delete', userController.handleDelete)
 
     return app.use('/api/user', router)
 }

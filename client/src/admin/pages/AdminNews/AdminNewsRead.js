@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { apiNewsRead } from '../../../services'
+import { apiNewsRead, apiNewsDelete } from '../../../services'
 import { path } from '../../../utils'
 
 function AdminNewsRead() {
@@ -13,6 +13,13 @@ function AdminNewsRead() {
     const fetchData = async () => {
         const res = await apiNewsRead()
         setNews(res.data.news)
+    }
+
+    const deleteNews = async id => {
+        if (window.confirm("Xóa vĩnh viễn?")) {
+            await apiNewsDelete(id)
+            fetchData()
+        }
     }
 
     return (
@@ -39,10 +46,12 @@ function AdminNewsRead() {
                             <td>{item.author}</td>
                             <td>{item.title}</td>
                             <td>
-                                <i className="fa-solid fa-pen btn-edit"></i>
+                                <Link to={`${path.ADMIN}/${path.ADMIN_NEWS_UPDATE}`} state={item}>
+                                    <i className="fa-solid fa-pen btn-edit"></i>
+                                </Link>
                             </td>
                             <td>
-                                <i className="fa-solid fa-trash btn-delete"></i>
+                                <i onClick={() => deleteNews(item._id)} className="fa-solid fa-trash btn-delete"></i>
                             </td>
                         </tr>
                     )}

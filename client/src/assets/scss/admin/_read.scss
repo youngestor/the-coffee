@@ -39,18 +39,25 @@
         cursor: pointer;
     }
 
-    td i.btn-edit:hover {
-        color: orange;
+    td i.btn-edit {
+        color: black;
     }
 
-    td i.btn-delete:hover {
-        color: red;
+    tbody tr:nth-child(odd) i.btn-edit {
+        color: white;
     }
-
 
     tbody tr:nth-child(odd) {
         background: $primary-color;
         color: $white-color;
+    }
+
+    tbody tr td i.btn-edit:hover {
+        color: orange;
+    }
+
+    tbody tr td i.btn-delete:hover {
+        color: red;
     }
 }
 

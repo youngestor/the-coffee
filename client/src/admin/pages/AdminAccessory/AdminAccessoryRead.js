@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { apiAccessoryRead } from '../../../services'
+import { apiAccessoryRead, apiAccessoryDelete } from '../../../services'
 import { path } from '../../../utils'
 
 function AdminAccessoryRead() {
@@ -13,6 +13,13 @@ function AdminAccessoryRead() {
     const fetchData = async () => {
         const res = await apiAccessoryRead()
         setAccessory(res.data.accessory)
+    }
+
+    const deleteAccessory = async id => {
+        if (window.confirm("Xóa vĩnh viễn?")) {
+            await apiAccessoryDelete(id)
+            fetchData()
+        }
     }
 
     return (
@@ -41,10 +48,12 @@ function AdminAccessoryRead() {
                             <td>{item.name}</td>
                             <td>{item.price}</td>
                             <td>
-                                <i className="fa-solid fa-pen btn-edit"></i>
+                                <Link to={`${path.ADMIN}/${path.ADMIN_ACCESSORY_UPDATE}`} state={item}>
+                                    <i className="fa-solid fa-pen btn-edit"></i>
+                                </Link>
                             </td>
                             <td>
-                                <i className="fa-solid fa-trash btn-delete"></i>
+                                <i onClick={() => deleteAccessory(item._id)} className="fa-solid fa-trash btn-delete"></i>
                             </td>
                         </tr>
                     )}

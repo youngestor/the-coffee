@@ -7,7 +7,8 @@ mongoose.plugin(slug)
 const Accessory = new Schema({
     name: String,
     desc: String,
-    price: Number,
+    price: String,
+    quantity: Number,
     image: String,
     author: String,
     slug: {

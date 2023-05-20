@@ -4,8 +4,8 @@ const bcrypt = require('bcryptjs')
 const userController = {
     handleRead: (req, res, next) => {
         userModel.find()
-            .then(user => res.status(200).json({
-                user
+            .then(users => res.status(200).json({
+                users
             }))
             .catch(next)
     },
@@ -78,6 +78,45 @@ const userController = {
                     user: userInfo
                 })
             })
+            .catch(next)
+    },
+
+    handleUpdate: (req, res, next) => {
+        const _id = req.body._id
+        const fullname = req.body.fullname
+        const username = req.body.username
+        const password = req.body.password
+
+        if (!_id || !fullname || !username || !password)
+            return res.status(500).json({
+                errCode: 1,
+                errMessage: 'Vui lòng điền đầy đủ thông tin.'
+            })
+
+        const passwordHash = bcrypt.hashSync(password, 8)
+        req.body.password = passwordHash
+
+        userModel.updateOne({ _id }, req.body)
+            .then(user => res.status(200).json({
+                errCode: 0,
+                user
+            }))
+            .catch(next)
+    },
+
+    handleDelete: (req, res, next) => {
+        const _id = req.body._id
+        if (!_id)
+            return res.status(500).json({
+                errCode: 1,
+                errMessage: 'Vui lòng điền đầy đủ thông tin.'
+            })
+
+        userModel.deleteOne({ _id })
+            .then(user => res.status(200).json({
+                errCode: 0,
+                user
+            }))
             .catch(next)
     }
 }

@@ -1,32 +1,28 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import FileBase64 from 'react-file-base64'
-import { connect } from 'react-redux'
 
 import { path } from '../../../utils'
-import { apiAccessoryCreate } from '../../../services'
+import { apiAccessoryUpdate } from '../../../services'
 
-function AdminAccessoryCreate({ userInfo }) {
+function AdminAccessoryUpdate() {
     const { register, handleSubmit } = useForm()
     const [image, setImage] = useState('')
     const [errMessage, setErrMessage] = useState()
-    const [success, setSuccess] = useState()
 
-    const onSubmit = async (data, e) => {
-        if (!image) {
-            return setErrMessage('Vui lòng thêm ảnh mô tả.')
-        } else {
-            data.author = userInfo.fullname
-            data.image = image
-        }
+    const location = useLocation()
+    const accessoryData = location.state
+
+    const navigate = useNavigate()
+
+    const onSubmit = async (data) => {
+        data._id = accessoryData._id
+        data.image = image
         try {
-            const res = await apiAccessoryCreate(data)
+            const res = await apiAccessoryUpdate(data)
             if (res.data.accessory) {
-                setSuccess('Thêm phụ kiện mới thành công.')
-                setErrMessage('')
-                setImage('')
-                e.target.reset()
+                navigate(-1)
             }
         } catch (error) {
             setErrMessage(error.response.data.errMessage)
@@ -42,20 +38,20 @@ function AdminAccessoryCreate({ userInfo }) {
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className='admin-create-wrapper'>
                 <div className='title'>
-                    Thêm phụ kiện mới
+                    Cập nhật phụ kiện
                 </div>
                 <div className='inputs'>
                     <div className='item'>
-                        <input autoComplete="off" {...register('name', { required: true })} placeholder='Tên sản phẩm' />
+                        <input defaultValue={accessoryData.name} autoComplete="off" {...register('name', { required: true })} placeholder='Tên sản phẩm' />
                     </div>
                     <div className='item'>
-                        <input autoComplete="off" {...register('desc', { required: true })} placeholder='Mô tả sản phảm' />
+                        <input defaultValue={accessoryData.desc} autoComplete="off" {...register('desc', { required: true })} placeholder='Mô tả sản phảm' />
                     </div>
                     <div className='item'>
-                        <input autoComplete="off" {...register('price', { required: true })} placeholder='Giá sản phẩm' />
+                        <input defaultValue={accessoryData.price} autoComplete="off" {...register('price', { required: true })} placeholder='Giá sản phẩm' />
                     </div>
                     <div className='item'>
-                        <input type='number' autoComplete="off" {...register('quantity', { required: true })} placeholder='Số lượng' />
+                        <input defaultValue={accessoryData.quantity} type='number' autoComplete="off" {...register('quantity', { required: true })} placeholder='Số lượng' />
                     </div>
                     <div className='item'>
                         <label className='file-upload'>
@@ -71,17 +67,12 @@ function AdminAccessoryCreate({ userInfo }) {
                     {image && <img className='review-img' src={image} alt='' />}
                 </div>
                 {errMessage && <div className='error-mess'>{errMessage}</div>}
-                {success && <div className='success-mess'>{success}</div>}
                 <button type='submit'>
-                    Thêm
+                    Cập nhật
                 </button>
             </form>
         </div >
     )
 }
 
-const mapStateToProps = state => ({
-    userInfo: state.user.userInfo
-})
-
-export default connect(mapStateToProps)(AdminAccessoryCreate)
+export default AdminAccessoryUpdate

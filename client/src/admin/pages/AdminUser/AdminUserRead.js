@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { apiUserRead } from '../../../services'
+import { apiUserRead, apiUserDelete } from '../../../services'
 import { path } from '../../../utils'
 
 function AdminUserRead() {
@@ -12,7 +12,14 @@ function AdminUserRead() {
 
     const fetchData = async () => {
         const res = await apiUserRead()
-        setUsers(res.data.user)
+        setUsers(res.data.users)
+    }
+
+    const deleteUser = async id => {
+        if (window.confirm("Xóa vĩnh viễn?")) {
+            await apiUserDelete(id)
+            fetchData()
+        }
     }
 
     return (
@@ -39,10 +46,12 @@ function AdminUserRead() {
                             <td>{item.fullname}</td>
                             <td>{item.username}</td>
                             <td>
-                                <i className="fa-solid fa-pen btn-edit"></i>
+                                <Link to={`${path.ADMIN}/${path.ADMIN_USER_UPDATE}`} state={item}>
+                                    <i className="fa-solid fa-pen btn-edit"></i>
+                                </Link>
                             </td>
                             <td>
-                                <i className="fa-solid fa-trash btn-delete"></i>
+                                <i onClick={() => deleteUser(item._id)} className="fa-solid fa-trash btn-delete"></i>
                             </td>
                         </tr>
                     )}
