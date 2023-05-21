@@ -1,6 +1,6 @@
 .admin-form-wrapper {
     width: 100%;
-    background: $light-color;
+    background: $secondary-color;
     padding: $big-space;
 
     .title {
@@ -15,17 +15,16 @@
             margin: $medium-space 0;
 
             input {
-                border: 2px solid $black-color;
+                border: $border-width $border-style $black-color;
                 padding: $small-space;
-                outline: none;
                 transition: $transition;
                 font-size: $medium-text;
-                border-radius: $small-radius;
+                border-radius: $border-small-radius;
                 width: 100%;
                 max-width: 400px;
 
                 &:focus {
-                    border: 2px solid $primary-color;
+                    border: $border-width $border-style $primary-color;
                 }
             }
 
@@ -34,9 +33,9 @@
             }
 
             .file-upload {
-                border: 2px solid $black-color;
+                border: $border-width $border-style $black-color;
                 display: inline-block;
-                padding: 8px $medium-space;
+                padding: $small-space $medium-space;
                 color: $black-color;
                 font-size: $medium-text;
                 cursor: pointer;
@@ -49,7 +48,7 @@
             width: $review-img-width;
             height: $review-img-height;
             object-fit: cover;
-            border: 2px solid $black-color;
+            border: $border-width $border-style $black-color;
         }
     }
 
@@ -67,24 +66,21 @@
         padding: $small-space $medium-space;
         background: $primary-color;
         color: $white-color;
-        border-radius: $small-radius;
+        border-radius: $border-small-radius;
         font-weight: $font-weight-bold;
         font-size: $medium-text;
-        border: none;
-        outline: none;
         margin-top: $medium-space;
 
         &:hover {
             opacity: $opacity;
             transition: $transition;
-            cursor: pointer;
         }
     }
 }
 
 .admin-login-wrapper {
     height: 100vh;
-    background: $light-color;
+    background: $secondary-color;
     text-align: center;
     align-items: center;
     display: flex;
@@ -95,7 +91,6 @@
 
     a {
         display: block;
-        text-decoration: none;
         color: $black-color;
         font-weight: $font-weight-bold;
         font-size: $medium-text;
@@ -106,7 +101,6 @@
         &:hover {
             color: $primary-color;
             transition: $transition;
-            cursor: pointer;
         }
     }
 }

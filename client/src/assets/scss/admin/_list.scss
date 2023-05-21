@@ -1,22 +1,20 @@
 .admin-list-wrapper {
     padding: $big-space 0;
 
-    .create {
+    .action {
         margin-bottom: $big-space;
 
-        .btn-create {
-            text-decoration: none;
+        .btn-action {
             padding: $small-space;
             background: $primary-color;
             color: $white-color;
-            border-radius: $small-radius;
+            border-radius: $border-small-radius;
             font-weight: $font-weight-bold;
             font-size: $medium-text;
 
             &:hover {
                 opacity: $opacity;
                 transition: $transition;
-                cursor: pointer;
             }
         }
     }
@@ -30,12 +28,12 @@
         width: $list-img-width;
         height: $list-img-height;
         object-fit: cover;
-        border: 2px solid $black-color;
+        border: $border-width $border-style $black-color;
     }
 
     td,
     th {
-        border: 1px solid $black-color;
+        border: $border-width $border-style $black-color;
         text-align: left;
         padding: $small-space;
     }
@@ -57,6 +55,11 @@
     tbody tr:nth-child(odd) {
         background: $primary-color;
         color: $white-color;
+    }
+
+    tbody tr:nth-child(even) {
+        background: $secondary-color;
+        color: $black-color;
     }
 
     tbody tr td i.btn-edit:hover {

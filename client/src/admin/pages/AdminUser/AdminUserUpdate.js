@@ -17,18 +17,18 @@ function AdminUserUpdate() {
         data._id = userData._id
         try {
             const res = await apiUserUpdate(data)
-            if (res.data.user) {
+            if (res.user) {
                 navigate(-1)
             }
-        } catch (error) {
-            setErrMessage(error.response.data.errMessage)
+        } catch (e) {
+            setErrMessage(e.errMessage)
         }
     }
 
     return (
         <div className='admin-list-wrapper'>
-            <div className='create'>
-                <Link to={`${path.ADMIN}/${path.ADMIN_USER_READ}`} className='btn-create'>
+            <div className='action'>
+                <Link to={`${path.ADMIN}/${path.ADMIN_USER_READ}`} className='btn-action'>
                     Danh sách tài khoản
                 </Link>
             </div>
@@ -38,16 +38,16 @@ function AdminUserUpdate() {
                 </div>
                 <div className='inputs'>
                     <div className='item'>
-                        <input defaultValue={userData.fullname} autoComplete="off" {...register('fullname', { required: true })} placeholder='Tên đầy đủ' />
+                        <input required defaultValue={userData.fullname} autoComplete="off" {...register('fullname', { required: true })} placeholder='Tên đầy đủ' />
                     </div>
                     <div className='item'>
-                        <input defaultValue={userData.username} autoComplete="off" {...register('username', { required: true })} placeholder='Tài khoản' />
+                        <input required defaultValue={userData.username} autoComplete="off" {...register('username', { required: true })} placeholder='Tài khoản' />
                     </div>
                     <div className='item'>
-                        <input type='password' autoComplete="off" {...register('password', { required: true })} placeholder='Mật khẩu' />
+                        <input required type='password' autoComplete="off" {...register('password', { required: true })} placeholder='Mật khẩu' />
                     </div>
                     <div className='item'>
-                        <input type='password' autoComplete="off" {...register("cpassword", {
+                        <input required type='password' autoComplete="off" {...register("cpassword", {
                             validate: (value) => {
                                 const { password } = getValues()
                                 password === value || setErrMessage('Mật khẩu không chính xác.')
@@ -61,7 +61,7 @@ function AdminUserUpdate() {
                     Cập nhật
                 </button>
             </form>
-        </div >
+        </div>
     )
 }
 

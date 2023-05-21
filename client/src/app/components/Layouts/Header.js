@@ -9,14 +9,14 @@ function Header() {
     return (
         <div className='header-wrapper'>
             <div className='header-container'>
-                <div className='header-left'>
-                    <Link className='left-title' to={path.HOME}>
+                <Link to={path.HOME} className='header-left'>
+                    <div className='left-title'>
                         The Coffee
-                    </Link>
+                    </div>
                     <div className='left-desc'>
                         Thế giới cà phê
                     </div>
-                </div>
+                </Link>
                 <div className='header-right'>
                     <i onClick={() => setMenu(true)} className="fa-solid fa-bars right-icon-menu"></i>
                     <div className={menu ? 'right-main' : 'right-main close'}>
@@ -32,7 +32,7 @@ function Header() {
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     );
 }
 

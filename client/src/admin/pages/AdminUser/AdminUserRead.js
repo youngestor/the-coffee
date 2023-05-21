@@ -4,7 +4,7 @@ import { apiUserRead, apiUserDelete } from '../../../services'
 import { path } from '../../../utils'
 
 function AdminUserRead() {
-    const [users, setUsers] = useState([])
+    const [allUsers, setAllUsers] = useState([])
 
     useEffect(() => {
         fetchData()
@@ -12,7 +12,7 @@ function AdminUserRead() {
 
     const fetchData = async () => {
         const res = await apiUserRead()
-        setUsers(res.data.users)
+        setAllUsers(res.allUsers)
     }
 
     const deleteUser = async id => {
@@ -24,8 +24,8 @@ function AdminUserRead() {
 
     return (
         <div className='admin-list-wrapper'>
-            <div className='create'>
-                <Link to={`${path.ADMIN}/${path.ADMIN_USER_CREATE}`} className='btn-create'>
+            <div className='action'>
+                <Link to={`${path.ADMIN}/${path.ADMIN_USER_CREATE}`} className='btn-action'>
                     Thêm tài khoản
                 </Link>
             </div>
@@ -40,7 +40,7 @@ function AdminUserRead() {
                     </tr>
                 </thead>
                 <tbody>
-                    {users && users.map((item, index) =>
+                    {allUsers && allUsers.map((item, index) =>
                         <tr key={item._id}>
                             <td>{++index}</td>
                             <td>{item.fullname}</td>
@@ -57,7 +57,7 @@ function AdminUserRead() {
                     )}
                 </tbody>
             </table>
-        </div >
+        </div>
     )
 }
 

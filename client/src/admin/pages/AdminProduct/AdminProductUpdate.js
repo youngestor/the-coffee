@@ -21,18 +21,18 @@ function AdminProductUpdate() {
         data.image = image
         try {
             const res = await apiProductUpdate(data)
-            if (res.data.product) {
+            if (res.product) {
                 navigate(-1)
             }
-        } catch (error) {
-            setErrMessage(error.response.data.errMessage)
+        } catch (e) {
+            setErrMessage(e.errMessage)
         }
     }
 
     return (
         <div className='admin-list-wrapper'>
-            <div className='create'>
-                <Link to={`${path.ADMIN}/${path.ADMIN_PRODUCT_READ}`} className='btn-create'>
+            <div className='action'>
+                <Link to={`${path.ADMIN}/${path.ADMIN_PRODUCT_READ}`} className='btn-action'>
                     Danh sách sản phẩm
                 </Link>
             </div>
@@ -42,16 +42,16 @@ function AdminProductUpdate() {
                 </div>
                 <div className='inputs'>
                     <div className='item'>
-                        <input defaultValue={productData.name} autoComplete="off" {...register('name', { required: true })} placeholder='Tên sản phẩm' />
+                        <input required defaultValue={productData.name} autoComplete="off" {...register('name', { required: true })} placeholder='Tên sản phẩm' />
                     </div>
                     <div className='item'>
-                        <input defaultValue={productData.desc} autoComplete="off" {...register('desc', { required: true })} placeholder='Mô tả sản phảm' />
+                        <input required defaultValue={productData.desc} autoComplete="off" {...register('desc', { required: true })} placeholder='Mô tả sản phảm' />
                     </div>
                     <div className='item'>
-                        <input defaultValue={productData.price} autoComplete="off" {...register('price', { required: true })} placeholder='Giá sản phẩm' />
+                        <input required defaultValue={productData.price} autoComplete="off" {...register('price', { required: true })} placeholder='Giá sản phẩm' />
                     </div>
                     <div className='item'>
-                        <input defaultValue={productData.quantity} type='number' autoComplete="off" {...register('quantity', { required: true })} placeholder='Số lượng' />
+                        <input required defaultValue={productData.quantity} type='number' autoComplete="off" {...register('quantity', { required: true })} placeholder='Số lượng' />
                     </div>
                     <div className='item'>
                         <label className='file-upload'>
@@ -71,7 +71,7 @@ function AdminProductUpdate() {
                     Cập nhật
                 </button>
             </form>
-        </div >
+        </div>
     )
 }
 

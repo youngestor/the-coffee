@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
-const URL = 'mongodb://localhost:27017/the-coffee'
+const urlMongodb = 'mongodb://localhost:27017/the-coffee'
 
 const connectDB = () => {
     try {
         mongoose.set('strictQuery', false)
-        mongoose.connect(URL, {
+        mongoose.connect(urlMongodb, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         })

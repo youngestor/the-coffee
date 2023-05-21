@@ -21,18 +21,18 @@ function AdminNewsUpdate() {
         data.image = image
         try {
             const res = await apiNewsUpdate(data)
-            if (res.data.news) {
+            if (res.news) {
                 navigate(-1)
             }
-        } catch (error) {
-            setErrMessage(error.response.data.errMessage)
+        } catch (e) {
+            setErrMessage(e.errMessage)
         }
     }
 
     return (
         <div className='admin-list-wrapper'>
-            <div className='create'>
-                <Link to={`${path.ADMIN}/${path.ADMIN_NEWS_READ}`} className='btn-create'>
+            <div className='action'>
+                <Link to={`${path.ADMIN}/${path.ADMIN_NEWS_READ}`} className='btn-action'>
                     Danh sách tin tức
                 </Link>
             </div>
@@ -42,10 +42,10 @@ function AdminNewsUpdate() {
                 </div>
                 <div className='inputs'>
                     <div className='item'>
-                        <input defaultValue={newsData.title} autoComplete="off" {...register('title', { required: true })} placeholder='Tiêu đề' />
+                        <input required defaultValue={newsData.title} autoComplete="off" {...register('title', { required: true })} placeholder='Tiêu đề' />
                     </div>
                     <div className='item'>
-                        <input defaultValue={newsData.desc} autoComplete="off" {...register('desc', { required: true })} placeholder='Nội dung' />
+                        <input required defaultValue={newsData.desc} autoComplete="off" {...register('desc', { required: true })} placeholder='Nội dung' />
                     </div>
                     <div className='item'>
                         <label className='file-upload'>
@@ -65,7 +65,7 @@ function AdminNewsUpdate() {
                     Cập nhật
                 </button>
             </form>
-        </div >
+        </div>
     )
 }
 

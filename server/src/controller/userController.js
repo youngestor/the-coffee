@@ -4,8 +4,8 @@ const bcrypt = require('bcryptjs')
 const userController = {
     handleRead: (req, res, next) => {
         userModel.find()
-            .then(users => res.status(200).json({
-                users
+            .then(allUsers => res.status(200).json({
+                allUsers
             }))
             .catch(next)
     },
@@ -17,7 +17,6 @@ const userController = {
 
         if (!fullname || !username || !password)
             return res.status(500).json({
-                errCode: 1,
                 errMessage: 'Vui lòng điền đầy đủ thông tin.'
             })
 
@@ -54,7 +53,6 @@ const userController = {
 
         if (!username || !password)
             return res.status(500).json({
-                errCode: 1,
                 errMessage: 'Vui lòng điền đầy đủ thông tin.'
             })
 
@@ -74,7 +72,6 @@ const userController = {
                 const userInfo = user.toObject()
                 delete userInfo.password
                 return res.status(200).json({
-                    errCode: 0,
                     user: userInfo
                 })
             })
@@ -89,7 +86,6 @@ const userController = {
 
         if (!_id || !fullname || !username || !password)
             return res.status(500).json({
-                errCode: 1,
                 errMessage: 'Vui lòng điền đầy đủ thông tin.'
             })
 
@@ -98,7 +94,6 @@ const userController = {
 
         userModel.updateOne({ _id }, req.body)
             .then(user => res.status(200).json({
-                errCode: 0,
                 user
             }))
             .catch(next)
@@ -108,13 +103,11 @@ const userController = {
         const _id = req.body._id
         if (!_id)
             return res.status(500).json({
-                errCode: 1,
                 errMessage: 'Vui lòng điền đầy đủ thông tin.'
             })
 
         userModel.deleteOne({ _id })
             .then(user => res.status(200).json({
-                errCode: 0,
                 user
             }))
             .catch(next)

@@ -34,7 +34,7 @@ function AdminHeader({ userInfo, processLogout }) {
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     );
 }
 

@@ -21,6 +21,6 @@ export const path = {
     ADMIN_NEWS_UPDATE: 'admin-news-update',
 }
 
-export const URL = {
+export const url = {
     SERVER: 'http://localhost:7000'
 }

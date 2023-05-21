@@ -4,7 +4,7 @@ import { apiProductRead, apiProductDelete } from '../../../services'
 import { path } from '../../../utils'
 
 function AdminProductRead() {
-    const [product, setProduct] = useState([])
+    const [allProducts, setAllProducts] = useState([])
 
     useEffect(() => {
         fetchData()
@@ -12,7 +12,7 @@ function AdminProductRead() {
 
     const fetchData = async () => {
         const res = await apiProductRead()
-        setProduct(res.data.product)
+        setAllProducts(res.allProducts)
     }
 
     const deleteProduct = async id => {
@@ -24,8 +24,8 @@ function AdminProductRead() {
 
     return (
         <div className='admin-list-wrapper'>
-            <div className='create'>
-                <Link to={`${path.ADMIN}/${path.ADMIN_PRODUCT_CREATE}`} className='btn-create'>
+            <div className='action'>
+                <Link to={`${path.ADMIN}/${path.ADMIN_PRODUCT_CREATE}`} className='btn-action'>
                     Thêm sản phẩm
                 </Link>
             </div>
@@ -42,7 +42,7 @@ function AdminProductRead() {
                     </tr>
                 </thead>
                 <tbody>
-                    {product && product.map((item, index) =>
+                    {allProducts && allProducts.map((item, index) =>
                         <tr key={item._id}>
                             <td>{++index}</td>
                             <td>{item.name}</td>
@@ -63,7 +63,7 @@ function AdminProductRead() {
                     )}
                 </tbody>
             </table>
-        </div >
+        </div>
     )
 }
 

@@ -4,7 +4,7 @@ import { apiNewsRead, apiNewsDelete } from '../../../services'
 import { path } from '../../../utils'
 
 function AdminNewsRead() {
-    const [news, setNews] = useState([])
+    const [allNews, setAllNews] = useState([])
 
     useEffect(() => {
         fetchData()
@@ -12,7 +12,7 @@ function AdminNewsRead() {
 
     const fetchData = async () => {
         const res = await apiNewsRead()
-        setNews(res.data.news)
+        setAllNews(res.allNews)
     }
 
     const deleteNews = async id => {
@@ -24,8 +24,8 @@ function AdminNewsRead() {
 
     return (
         <div className='admin-list-wrapper'>
-            <div className='create'>
-                <Link to={`${path.ADMIN}/${path.ADMIN_NEWS_CREATE}`} className='btn-create'>
+            <div className='action'>
+                <Link to={`${path.ADMIN}/${path.ADMIN_NEWS_CREATE}`} className='btn-action'>
                     Thêm tin tức
                 </Link>
             </div>
@@ -41,7 +41,7 @@ function AdminNewsRead() {
                     </tr>
                 </thead>
                 <tbody>
-                    {news && news.map((item, index) =>
+                    {allNews && allNews.map((item, index) =>
                         <tr key={item._id}>
                             <td>{++index}</td>
                             <td>{item.title}</td>
@@ -61,7 +61,7 @@ function AdminNewsRead() {
                     )}
                 </tbody>
             </table>
-        </div >
+        </div>
     )
 }
 

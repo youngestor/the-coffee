@@ -38,7 +38,7 @@ function Admin({ isLoggedIn }) {
 
                 <Route path={path.ALL} element={<Navigate to={`/${path.ALL}`} />} />
             </Routes>
-        </AdminLayouts > : <AdminUserLogin />
+        </AdminLayouts> : <AdminUserLogin />
     )
 }
 

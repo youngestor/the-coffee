@@ -22,21 +22,21 @@ function AdminProductCreate({ userInfo }) {
         }
         try {
             const res = await apiProductCreate(data)
-            if (res.data.product) {
+            if (res.product) {
                 setSuccess('Thêm sản phẩm mới thành công.')
                 setErrMessage('')
                 setImage('')
                 e.target.reset()
             }
-        } catch (error) {
-            setErrMessage(error.response.data.errMessage)
+        } catch (e) {
+            setErrMessage(e.errMessage)
         }
     }
 
     return (
         <div className='admin-list-wrapper'>
-            <div className='create'>
-                <Link to={`${path.ADMIN}/${path.ADMIN_PRODUCT_READ}`} className='btn-create'>
+            <div className='action'>
+                <Link to={`${path.ADMIN}/${path.ADMIN_PRODUCT_READ}`} className='btn-action'>
                     Danh sách sản phẩm
                 </Link>
             </div>
@@ -46,16 +46,16 @@ function AdminProductCreate({ userInfo }) {
                 </div>
                 <div className='inputs'>
                     <div className='item'>
-                        <input autoComplete="off" {...register('name', { required: true })} placeholder='Tên sản phẩm' />
+                        <input required autoComplete="off" {...register('name', { required: true })} placeholder='Tên sản phẩm' />
                     </div>
                     <div className='item'>
-                        <input autoComplete="off" {...register('desc', { required: true })} placeholder='Mô tả sản phảm' />
+                        <input required autoComplete="off" {...register('desc', { required: true })} placeholder='Mô tả sản phảm' />
                     </div>
                     <div className='item'>
-                        <input autoComplete="off" {...register('price', { required: true })} placeholder='Giá sản phẩm' />
+                        <input required autoComplete="off" {...register('price', { required: true })} placeholder='Giá sản phẩm' />
                     </div>
                     <div className='item'>
-                        <input type='number' autoComplete="off" {...register('quantity', { required: true })} placeholder='Số lượng' />
+                        <input required type='number' autoComplete="off" {...register('quantity', { required: true })} placeholder='Số lượng' />
                     </div>
                     <div className='item'>
                         <label className='file-upload'>
@@ -76,7 +76,7 @@ function AdminProductCreate({ userInfo }) {
                     Thêm
                 </button>
             </form>
-        </div >
+        </div>
     )
 }
 

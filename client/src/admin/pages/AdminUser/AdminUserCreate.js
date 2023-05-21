@@ -12,20 +12,20 @@ function AdminUserCreate() {
     const onSubmit = async (data, e) => {
         try {
             const res = await apiUserCreate(data)
-            if (res.data.user) {
+            if (res.user) {
                 setSuccess('Đăng ký tài khoản thành công.')
                 setErrMessage('')
             }
             e.target.reset()
-        } catch (error) {
-            setErrMessage(error.response.data.errMessage)
+        } catch (e) {
+            setErrMessage(e.errMessage)
         }
     }
 
     return (
         <div className='admin-list-wrapper'>
-            <div className='create'>
-                <Link to={`${path.ADMIN}/${path.ADMIN_USER_READ}`} className='btn-create'>
+            <div className='action'>
+                <Link to={`${path.ADMIN}/${path.ADMIN_USER_READ}`} className='btn-action'>
                     Danh sách tài khoản
                 </Link>
             </div>
@@ -35,16 +35,16 @@ function AdminUserCreate() {
                 </div>
                 <div className='inputs'>
                     <div className='item'>
-                        <input autoComplete="off" {...register('fullname', { required: true })} placeholder='Tên đầy đủ' />
+                        <input required autoComplete="off" {...register('fullname', { required: true })} placeholder='Tên đầy đủ' />
                     </div>
                     <div className='item'>
-                        <input autoComplete="off" {...register('username', { required: true })} placeholder='Tài khoản' />
+                        <input required autoComplete="off" {...register('username', { required: true })} placeholder='Tài khoản' />
                     </div>
                     <div className='item'>
-                        <input type='password' autoComplete="off" {...register('password', { required: true })} placeholder='Mật khẩu' />
+                        <input required type='password' autoComplete="off" {...register('password', { required: true })} placeholder='Mật khẩu' />
                     </div>
                     <div className='item'>
-                        <input type='password' autoComplete="off" {...register("cpassword", {
+                        <input required type='password' autoComplete="off" {...register("cpassword", {
                             validate: (value) => {
                                 const { password } = getValues()
                                 password === value || setErrMessage('Mật khẩu không chính xác.')
@@ -59,7 +59,7 @@ function AdminUserCreate() {
                     Đăng ký
                 </button>
             </form>
-        </div >
+        </div>
     )
 }
 

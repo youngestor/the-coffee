@@ -14,11 +14,11 @@ function Login({ loginSuccess }) {
     const onSubmit = async data => {
         try {
             const res = await apiUserLogin(data)
-            if (res && res.data.errCode === 0)
-                loginSuccess(res.data.user)
-            navigate(-1)
-        } catch (error) {
-            setErrMessage(error.response.data.errMessage)
+            if (res && res.user)
+                loginSuccess(res.user)
+            navigate(path.ADMIN)
+        } catch (e) {
+            setErrMessage(e.errMessage)
         }
     }
 
@@ -30,10 +30,10 @@ function Login({ loginSuccess }) {
                 </div>
                 <div className='inputs'>
                     <div className='item'>
-                        <input autoComplete="off" {...register('username', { required: true })} placeholder='Tài khoản' />
+                        <input required autoComplete="off" {...register('username', { required: true })} placeholder='Tài khoản' />
                     </div>
                     <div className='item'>
-                        <input type='password' autoComplete="off" {...register('password', { required: true })} placeholder='Mật khẩu' />
+                        <input required type='password' autoComplete="off" {...register('password', { required: true })} placeholder='Mật khẩu' />
                     </div>
                 </div>
                 {errMessage && <div className='error-mess'>{errMessage}</div>}

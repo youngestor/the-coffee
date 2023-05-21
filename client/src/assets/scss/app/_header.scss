@@ -21,8 +21,8 @@
             padding: $small-space;
 
             &:hover {
-                background: $light-color;
-                border-radius: $medium-radius;
+                background: $secondary-color;
+                border-radius: $border-medium-radius;
                 transition: $transition;
                 cursor: pointer;
             }
@@ -30,9 +30,7 @@
             .left-title {
                 display: block;
                 color: $primary-color;
-                text-decoration: none;
                 font-size: $big-text;
-                font-weight: $font-weight-bold;
                 text-shadow: 2px 2px 4px $black-color;
                 font-style: italic;
             }
@@ -63,7 +61,6 @@
 
                 .right-item {
                     text-transform: uppercase;
-                    text-decoration: none;
                     letter-spacing: 1px;
                     color: $black-color;
                     font-size: $small-text;
@@ -79,7 +76,7 @@
                     &.active {
                         background: $primary-color;
                         color: $white-color;
-                        border-radius: $small-radius;
+                        border-radius: $border-small-radius;
                         transition: $transition;
                     }
                 }
@@ -90,18 +87,16 @@
                     justify-content: center;
                     margin-left: $big-space;
                     padding: $small-space;
-                    border-radius: $medium-radius;
+                    border-radius: $border-medium-radius;
                     background: $primary-color;
                     font-weight: $font-weight-bold;
 
                     a {
                         color: $white-color;
-                        text-decoration: none;
-                        cursor: pointer;
                     }
 
                     i {
-                        margin-left: 5px;
+                        margin-left: $small-space;
                         font-size: $medium-text;
                     }
                 }
@@ -110,10 +105,10 @@
     }
 }
 
-@media (max-width: ($max-width + 50px)) {
+@media (max-width: ($max-width + $big-space)) {
     .header-wrapper {
         .header-container {
-            max-width: 95%;
+            max-width: $max-width-small;
 
             .header-right {
                 .right-main {
@@ -154,7 +149,7 @@
                     width: 100%;
                     font-size: $big-text;
                     text-align: right;
-                    line-height: 80px;
+                    line-height: $header-height;
                     cursor: pointer;
                 }
 

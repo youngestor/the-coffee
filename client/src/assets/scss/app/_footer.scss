@@ -2,7 +2,7 @@
     position: relative;
     left: 0;
     right: 0;
-    background: $light-color;
+    background: $secondary-color;
 
     .footer-container {
         display: flex;
@@ -24,7 +24,7 @@
             .top-list {
                 .title {
                     font-weight: $font-weight-bold;
-                    font-size: 18px;
+                    font-size: $medium-text;
                     margin-bottom: $small-space;
                     white-space: nowrap;
                 }
@@ -38,7 +38,6 @@
 
                     a {
                         color: $black-color;
-                        text-decoration: none;
 
                         &:hover,
                         &.active {
@@ -62,10 +61,10 @@
     }
 }
 
-@media (max-width: ($max-width + 50px)) {
+@media (max-width: ($max-width + $big-space)) {
     .footer-wrapper {
         .footer-container {
-            max-width: 95%;
+            max-width: $max-width-small;
         }
     }
 }

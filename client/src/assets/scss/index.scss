@@ -1,7 +1,7 @@
-$primary-color: #00b3a0;
-$light-color: #f5f5f5;
-$white-color: #fff;
-$black-color: #333;
+$primary-color: #6F4E37;
+$secondary-color: #FFF7E6;
+$white-color: #FFFFFF;
+$black-color: #0B0B0B;
 
 $big-space: 40px;
 $medium-space: 20px;
@@ -11,18 +11,23 @@ $big-text: 30px;
 $medium-text: 18px;
 $small-text: 14px;
 
-$opacity: 0.8;
-$transition: 0.5s;
-$font-weight-bold: 700;
-
 $max-width: 1000px;
+$max-width-small: 95%;
 $header-height: 80px;
+
 $review-img-width: 300px;
 $review-img-height: 200px;
 $list-img-width: 90px;
 $list-img-height: 60px;
-$medium-radius: 10px;
-$small-radius: 4px;
+
+$border-medium-radius: 10px;
+$border-small-radius: 4px;
+$border-width: 2px;
+$border-style: solid;
+
+$font-weight-bold: 700;
+$opacity: 0.8;
+$transition: 0.5s;
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
 
@@ -37,17 +42,32 @@ html {
     font-family: 'Quicksand', sans-serif;
 }
 
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+input {
+    outline: none;
+}
+
 .app-wrapper,
 .admin-wrapper {
     max-width: $max-width;
     margin: $header-height auto 0;
 }
 
-@media (max-width: ($max-width + 50px)) {
+@media (max-width: ($max-width + $big-space)) {
 
     .app-wrapper,
     .admin-wrapper {
-        max-width: 95%;
+        max-width: $max-width-small;
     }
 }
 
