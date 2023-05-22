@@ -9,13 +9,17 @@ const productController = {
             .catch(next)
     },
 
+    handleTrash: (req, res, next) => {
+        productModel.findDeleted()
+            .then(allProducts => res.status(200).json({
+                allProducts
+            }))
+            .catch(next)
+    },
+
     handleCreate: (req, res, next) => {
-        const name = req.body.name
-        const desc = req.body.desc
-        const image = req.body.image
-        const price = req.body.price
-        const quantity = req.body.quantity
-        if (!name || !desc || !image || !price || !quantity)
+        const { name, desc, image, price } = req.body
+        if (!name || !desc || !image || !price)
             return res.status(500).json({
                 errMessage: 'Vui lòng điền đầy đủ thông tin.'
             })
@@ -29,13 +33,9 @@ const productController = {
     },
 
     handleUpdate: (req, res, next) => {
-        const _id = req.body._id
-        const name = req.body.name
-        const desc = req.body.desc
-        const image = req.body.image
-        const price = req.body.price
-        const quantity = req.body.quantity
-        if (!name || !desc || !image || !price || !quantity)
+        const _id = req.params.id
+        const { name, desc, image, price } = req.body
+        if (!name || !desc || !image || !price)
             return res.status(500).json({
                 errMessage: 'Vui lòng điền đầy đủ thông tin.'
             })
@@ -47,8 +47,36 @@ const productController = {
             .catch(next)
     },
 
+    handleRestore: (req, res, next) => {
+        const _id = req.params.id
+        if (!_id)
+            return res.status(500).json({
+                errMessage: 'Vui lòng điền đầy đủ thông tin.'
+            })
+
+        productModel.restore({ _id })
+            .then(product => res.status(200).json({
+                product
+            }))
+            .catch(next)
+    },
+
     handleDelete: (req, res, next) => {
-        const _id = req.body._id
+        const _id = req.params.id
+        if (!_id)
+            return res.status(500).json({
+                errMessage: 'Vui lòng điền đầy đủ thông tin.'
+            })
+
+        productModel.delete({ _id })
+            .then(product => res.status(200).json({
+                product
+            }))
+            .catch(next)
+    },
+
+    handleDeleteForce: (req, res, next) => {
+        const _id = req.params.id
         if (!_id)
             return res.status(500).json({
                 errMessage: 'Vui lòng điền đầy đủ thông tin.'

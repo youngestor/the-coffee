@@ -2,12 +2,11 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import FileBase64 from 'react-file-base64'
-import { connect } from 'react-redux'
 
 import { path } from '../../../utils'
 import { apiProductCreate } from '../../../services'
 
-function AdminProductCreate({ userInfo }) {
+function AdminProductCreate() {
     const { register, handleSubmit } = useForm()
     const [image, setImage] = useState('')
     const [errMessage, setErrMessage] = useState()
@@ -17,7 +16,6 @@ function AdminProductCreate({ userInfo }) {
         if (!image) {
             return setErrMessage('Vui lòng thêm ảnh mô tả.')
         } else {
-            data.author = userInfo.fullname
             data.image = image
         }
         try {
@@ -55,9 +53,6 @@ function AdminProductCreate({ userInfo }) {
                         <input required autoComplete="off" {...register('price', { required: true })} placeholder='Giá sản phẩm' />
                     </div>
                     <div className='item'>
-                        <input required type='number' autoComplete="off" {...register('quantity', { required: true })} placeholder='Số lượng' />
-                    </div>
-                    <div className='item'>
                         <label className='file-upload'>
                             <FileBase64
                                 multiple={false}
@@ -80,8 +75,4 @@ function AdminProductCreate({ userInfo }) {
     )
 }
 
-const mapStateToProps = state => ({
-    userInfo: state.user.userInfo
-})
-
-export default connect(mapStateToProps)(AdminProductCreate)
+export default AdminProductCreate

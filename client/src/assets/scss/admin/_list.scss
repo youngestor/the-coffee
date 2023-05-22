@@ -2,6 +2,8 @@
     padding: $big-space 0;
 
     .action {
+        display: flex;
+        gap: $medium-space;
         margin-bottom: $big-space;
 
         .btn-action {
@@ -15,6 +17,11 @@
             &:hover {
                 opacity: $opacity;
                 transition: $transition;
+            }
+
+            &.trash {
+                background: transparent;
+                color: $black-color;
             }
         }
     }
@@ -68,6 +75,10 @@
 
     tbody tr td i.btn-delete:hover {
         color: red;
+    }
+
+    td[colSpan] {
+        text-align: center;
     }
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { apiProductRead, apiProductDelete } from '../../../services'
+import { apiProductTrash, apiProductRestore, apiProductDeleteForce } from '../../../services'
 import { path } from '../../../utils'
 
 function AdminProductRead() {
@@ -11,13 +11,20 @@ function AdminProductRead() {
     }, [])
 
     const fetchData = async () => {
-        const res = await apiProductRead()
+        const res = await apiProductTrash()
         setAllProducts(res.allProducts)
     }
 
-    const deleteProduct = async id => {
-        if (window.confirm("Đưa vào thùng rác?")) {
-            await apiProductDelete(id)
+    const deleteForceProduct = async id => {
+        if (window.confirm("Xóa vĩnh viễn?")) {
+            await apiProductDeleteForce(id)
+            fetchData()
+        }
+    }
+
+    const restoreProduct = async id => {
+        if (window.confirm("Khôi phục?")) {
+            await apiProductRestore(id)
             fetchData()
         }
     }
@@ -25,11 +32,8 @@ function AdminProductRead() {
     return (
         <div className='admin-list-wrapper'>
             <div className='action'>
-                <Link to={`${path.ADMIN}/${path.ADMIN_PRODUCT_CREATE}`} className='btn-action'>
-                    Thêm sản phẩm
-                </Link>
-                <Link to={`${path.ADMIN}/${path.ADMIN_PRODUCT_TRASH}`} className='btn-action trash'>
-                    Thùng rác
+                <Link to={`${path.ADMIN}/${path.ADMIN_PRODUCT_READ}`} className='btn-action trash'>
+                    Quay lại
                 </Link>
             </div>
             <table>
@@ -39,8 +43,8 @@ function AdminProductRead() {
                         <th>Tên sản phẩm</th>
                         <th>Giá sản phẩm</th>
                         <th>Hình ảnh</th>
-                        <th>Sửa</th>
-                        <th>Xóa</th>
+                        <th>Khôi phục</th>
+                        <th>Xóa vĩnh viễn</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,17 +57,15 @@ function AdminProductRead() {
                                 <img src={item.image} alt={item.title} />
                             </td>
                             <td>
-                                <Link to={`${path.ADMIN}/${path.ADMIN_PRODUCT_UPDATE}`} state={item}>
-                                    <i className="fa-solid fa-pen btn-edit"></i>
-                                </Link>
+                                <i onClick={() => restoreProduct(item._id)} className="fa-solid fa-pen btn-edit"></i>
                             </td>
                             <td>
-                                <i onClick={() => deleteProduct(item._id)} className="fa-solid fa-trash btn-delete"></i>
+                                <i onClick={() => deleteForceProduct(item._id)} className="fa-solid fa-trash btn-delete"></i>
                             </td>
                         </tr>
                     ) :
                         <tr>
-                            <td colSpan='6'>Không có dữ liệu</td>
+                            <td colSpan='6'>Thùng rác trống</td>
                         </tr>
                     }
                 </tbody>

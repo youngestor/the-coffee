@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { apiUserRead, apiUserDelete } from '../../../services'
+import { apiUserTrash, apiUserRestore, apiUserDeleteForce } from '../../../services'
 import { path } from '../../../utils'
 
 function AdminUserRead() {
@@ -11,13 +11,20 @@ function AdminUserRead() {
     }, [])
 
     const fetchData = async () => {
-        const res = await apiUserRead()
+        const res = await apiUserTrash()
         setAllUsers(res.allUsers)
     }
 
-    const deleteUser = async id => {
-        if (window.confirm("Đưa vào thùng rác?")) {
-            await apiUserDelete(id)
+    const deleteForceUser = async id => {
+        if (window.confirm("Xóa vĩnh viễn?")) {
+            await apiUserDeleteForce(id)
+            fetchData()
+        }
+    }
+
+    const restoreUser = async id => {
+        if (window.confirm("Khôi phục?")) {
+            await apiUserRestore(id)
             fetchData()
         }
     }
@@ -25,11 +32,8 @@ function AdminUserRead() {
     return (
         <div className='admin-list-wrapper'>
             <div className='action'>
-                <Link to={`${path.ADMIN}/${path.ADMIN_USER_CREATE}`} className='btn-action'>
-                    Thêm tài khoản
-                </Link>
-                <Link to={`${path.ADMIN}/${path.ADMIN_USER_TRASH}`} className='btn-action trash'>
-                    Thùng rác
+                <Link to={`${path.ADMIN}/${path.ADMIN_USER_READ}`} className='btn-action trash'>
+                    Quay lại
                 </Link>
             </div>
             <table>
@@ -38,8 +42,8 @@ function AdminUserRead() {
                         <th>STT</th>
                         <th>Tên người dùng</th>
                         <th>Tên tài khoản</th>
-                        <th>Sửa</th>
-                        <th>Xóa</th>
+                        <th>Khôi phục</th>
+                        <th>Xóa vĩnh viễn</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,17 +53,15 @@ function AdminUserRead() {
                             <td>{item.fullname}</td>
                             <td>{item.username}</td>
                             <td>
-                                <Link to={`${path.ADMIN}/${path.ADMIN_USER_UPDATE}`} state={item}>
-                                    <i className="fa-solid fa-pen btn-edit"></i>
-                                </Link>
+                                <i onClick={() => restoreUser(item._id)} className="fa-solid fa-pen btn-edit"></i>
                             </td>
                             <td>
-                                <i onClick={() => deleteUser(item._id)} className="fa-solid fa-trash btn-delete"></i>
+                                <i onClick={() => deleteForceUser(item._id)} className="fa-solid fa-trash btn-delete"></i>
                             </td>
                         </tr>
                     ) :
                         <tr>
-                            <td colSpan='5'>Không có dữ liệu</td>
+                            <td colSpan='5'>Thùng rác trống</td>
                         </tr>
                     }
                 </tbody>

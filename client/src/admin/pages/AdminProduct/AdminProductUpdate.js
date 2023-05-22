@@ -51,9 +51,6 @@ function AdminProductUpdate() {
                         <input required defaultValue={productData.price} autoComplete="off" {...register('price', { required: true })} placeholder='Giá sản phẩm' />
                     </div>
                     <div className='item'>
-                        <input required defaultValue={productData.quantity} type='number' autoComplete="off" {...register('quantity', { required: true })} placeholder='Số lượng' />
-                    </div>
-                    <div className='item'>
                         <label className='file-upload'>
                             <FileBase64
                                 multiple={false}

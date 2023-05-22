@@ -10,11 +10,16 @@ const userController = {
             .catch(next)
     },
 
-    handleCreate: (req, res, next) => {
-        const fullname = req.body.fullname
-        const username = req.body.username
-        const password = req.body.password
+    handleTrash: (req, res, next) => {
+        userModel.findDeleted()
+            .then(allUsers => res.status(200).json({
+                allUsers
+            }))
+            .catch(next)
+    },
 
+    handleCreate: (req, res, next) => {
+        const { fullname, username, password } = req.body
         if (!fullname || !username || !password)
             return res.status(500).json({
                 errMessage: 'Vui lòng điền đầy đủ thông tin.'
@@ -48,9 +53,7 @@ const userController = {
     },
 
     handleLogin: (req, res, next) => {
-        const username = req.body.username
-        const password = req.body.password
-
+        const { username, password } = req.body
         if (!username || !password)
             return res.status(500).json({
                 errMessage: 'Vui lòng điền đầy đủ thông tin.'
@@ -79,10 +82,8 @@ const userController = {
     },
 
     handleUpdate: (req, res, next) => {
-        const _id = req.body._id
-        const fullname = req.body.fullname
-        const username = req.body.username
-        const password = req.body.password
+        const _id = req.params.id
+        const { fullname, username, password } = req.body
 
         if (!_id || !fullname || !username || !password)
             return res.status(500).json({
@@ -99,8 +100,36 @@ const userController = {
             .catch(next)
     },
 
+    handleRestore: (req, res, next) => {
+        const _id = req.params.id
+        if (!_id)
+            return res.status(500).json({
+                errMessage: 'Vui lòng điền đầy đủ thông tin.'
+            })
+
+        userModel.restore({ _id })
+            .then(user => res.status(200).json({
+                user
+            }))
+            .catch(next)
+    },
+
     handleDelete: (req, res, next) => {
-        const _id = req.body._id
+        const _id = req.params.id
+        if (!_id)
+            return res.status(500).json({
+                errMessage: 'Vui lòng điền đầy đủ thông tin.'
+            })
+
+        userModel.delete({ _id })
+            .then(user => res.status(200).json({
+                user
+            }))
+            .catch(next)
+    },
+
+    handleDeleteForce: (req, res, next) => {
+        const _id = req.params.id
         if (!_id)
             return res.status(500).json({
                 errMessage: 'Vui lòng điền đầy đủ thông tin.'

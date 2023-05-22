@@ -7,7 +7,7 @@ export const dataHeader = [
     },
     {
         name: 'Sản phẩm',
-        path: path.PRODUCT
+        path: path.PRODUCTS
     },
     {
         name: 'Tin tức',

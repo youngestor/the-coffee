@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { apiNewsRead, apiNewsDelete } from '../../../services'
+import { apiNewsTrash, apiNewsRestore, apiNewsDeleteForce } from '../../../services'
 import { path } from '../../../utils'
 
-function AdminNewsRead() {
+function AdminNewsTrash() {
     const [allNews, setAllNews] = useState([])
 
     useEffect(() => {
@@ -11,13 +11,20 @@ function AdminNewsRead() {
     }, [])
 
     const fetchData = async () => {
-        const res = await apiNewsRead()
+        const res = await apiNewsTrash()
         setAllNews(res.allNews)
     }
 
-    const deleteNews = async id => {
-        if (window.confirm("Đưa vào thùng rác?")) {
-            await apiNewsDelete(id)
+    const deleteForceNews = async id => {
+        if (window.confirm("Xóa vĩnh viễn?")) {
+            await apiNewsDeleteForce(id)
+            fetchData()
+        }
+    }
+
+    const restoreNews = async id => {
+        if (window.confirm("Khôi phục?")) {
+            await apiNewsRestore(id)
             fetchData()
         }
     }
@@ -25,11 +32,8 @@ function AdminNewsRead() {
     return (
         <div className='admin-list-wrapper'>
             <div className='action'>
-                <Link to={`${path.ADMIN}/${path.ADMIN_NEWS_CREATE}`} className='btn-action'>
-                    Thêm tin tức
-                </Link>
-                <Link to={`${path.ADMIN}/${path.ADMIN_NEWS_TRASH}`} className='btn-action trash'>
-                    Thùng rác
+                <Link to={`${path.ADMIN}/${path.ADMIN_NEWS_READ}`} className='btn-action trash'>
+                    Quay lại
                 </Link>
             </div>
             <table>
@@ -39,8 +43,8 @@ function AdminNewsRead() {
                         <th>Tiêu đề</th>
                         <th>Hình ảnh</th>
                         <th>Tác giả</th>
-                        <th>Sửa</th>
-                        <th>Xóa</th>
+                        <th>Khôi phục</th>
+                        <th>Xóa vĩnh viễn</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -53,17 +57,15 @@ function AdminNewsRead() {
                             </td>
                             <td>{item.author}</td>
                             <td>
-                                <Link to={`${path.ADMIN}/${path.ADMIN_NEWS_UPDATE}`} state={item}>
-                                    <i className="fa-solid fa-pen btn-edit"></i>
-                                </Link>
+                                <i onClick={() => restoreNews(item._id)} className="fa-solid fa-pen btn-edit"></i>
                             </td>
                             <td>
-                                <i onClick={() => deleteNews(item._id)} className="fa-solid fa-trash btn-delete"></i>
+                                <i onClick={() => deleteForceNews(item._id)} className="fa-solid fa-trash btn-delete"></i>
                             </td>
                         </tr>
                     ) :
                         <tr>
-                            <td colSpan='6'>Không có dữ liệu</td>
+                            <td colSpan='6'>Thùng rác trống</td>
                         </tr>
                     }
                 </tbody>
@@ -72,4 +74,4 @@ function AdminNewsRead() {
     )
 }
 
-export default AdminNewsRead;
+export default AdminNewsTrash;
