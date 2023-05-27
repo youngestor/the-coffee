@@ -45,9 +45,9 @@
         .review-img {
             display: block;
             margin-top: $medium-space;
-            width: $review-img-width;
-            height: $review-img-height;
-            object-fit: cover;
+            width: $big-img-width;
+            height: $big-img-height;
+            object-fit: $object-fit;
             border: $border-width $border-style $black-color;
         }
     }

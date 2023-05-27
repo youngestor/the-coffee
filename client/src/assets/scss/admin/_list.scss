@@ -32,9 +32,9 @@
     }
 
     td img {
-        width: $list-img-width;
-        height: $list-img-height;
-        object-fit: cover;
+        width: $small-img-width;
+        height: $small-img-height;
+        object-fit: $object-fit;
         border: $border-width $border-style $black-color;
     }
 
@@ -82,7 +82,7 @@
     }
 }
 
-@media (max-width: (500px)) {
+@media (max-width: ($mobile-width)) {
     .admin-list-wrapper {
         table {
             display: block;

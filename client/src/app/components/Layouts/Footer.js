@@ -9,7 +9,7 @@ function Footer() {
                     <div className='top-list'>
                         <div className='title'>Cửa hàng</div>
                         <div className='item'>
-                            <NavLink to={path.PRODUCT}>
+                            <NavLink to={path.PRODUCTS}>
                                 Sản phẩm
                             </NavLink>
                         </div>
