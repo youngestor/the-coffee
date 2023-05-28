@@ -18,11 +18,6 @@ function Footer() {
                                 Tin tức
                             </NavLink>
                         </div>
-                        <div className='item'>
-                            <NavLink to={path.CONTACT}>
-                                Liên hệ
-                            </NavLink>
-                        </div>
                     </div>
                     <div className='top-list'>
                         <div className='title'>Liên hệ</div>

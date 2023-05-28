@@ -13,8 +13,4 @@ export const dataHeader = [
         name: 'Tin tức',
         path: path.NEWS
     },
-    {
-        name: 'Liên hệ',
-        path: path.CONTACT
-    },
 ]

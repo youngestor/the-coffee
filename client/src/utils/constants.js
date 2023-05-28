@@ -3,7 +3,6 @@ export const path = {
     HOME: '/',
     PRODUCTS: '/products',
     NEWS: '/news',
-    CONTACT: '/contact',
     CART: '/cart',
 
     ADMIN: '/admin',
