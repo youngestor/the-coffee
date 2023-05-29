@@ -1,0 +1,36 @@
+.home-wrapper {
+    margin-top: $medium-space + $header-height;
+    margin-bottom: $medium-space;
+
+    .banner-img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border: $small-space $border-style $primary-color;
+        border-radius: $border-small-radius;
+    }
+
+    .home-products {
+        border-radius: $border-small-radius;
+        padding: $small-space;
+        background: $secondary-color;
+        color: $black-color;
+    }
+
+    .home-news {
+        border-radius: $border-small-radius;
+        padding: $small-space;
+        background: $primary-color;
+        color: $white-color;
+    }
+
+    .spacing {
+        height: $big-space;
+    }
+
+    .home-list {
+        border-radius: $border-small-radius;
+        background: $white-color;
+        color: $black-color;
+    }
+}

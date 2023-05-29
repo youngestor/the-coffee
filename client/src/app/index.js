@@ -7,6 +7,7 @@ import ScrollToTop from './components/ScrollToTop'
 import Error from './pages/Error'
 import Home from './pages/Home'
 import News from './pages/News'
+import Products from './pages/Products'
 
 
 export default function Page() {
@@ -15,6 +16,7 @@ export default function Page() {
             <ScrollToTop />
             <Routes>
                 <Route index element={<Home />} />
+                <Route path={path.PRODUCTS} element={<Products />} />
                 <Route path={path.NEWS} element={<News />} />
                 <Route path={path.ALL} element={<Error />} />
             </Routes>

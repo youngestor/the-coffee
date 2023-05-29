@@ -154,6 +154,16 @@
                 }
 
                 .right-main {
+                    flex-direction: column;
+                    padding: $medium-space;
+                    background: white;
+                    box-shadow: 0 0 2px $black-color;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    height: 100vh;
+                    width: 40vw;
+                    min-width: 280px;
                     opacity: 1;
                     transition: $transition;
 
@@ -169,16 +179,17 @@
                         cursor: pointer;
                     }
 
-                    flex-direction: column;
-                    padding: $medium-space;
-                    background: white;
-                    box-shadow: 0 0 2px $black-color;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    height: 100vh;
-                    width: 40vw;
-                    min-width: 280px;
+                    .right-btn {
+                        justify-content: left;
+
+                        span {
+                            display: unset;
+                        }
+
+                        i {
+                            margin-left: $small-space;
+                        }
+                    }
                 }
             }
         }

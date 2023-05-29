@@ -1,0 +1,45 @@
+.app-wrapper,
+.admin-wrapper {
+    max-width: $max-width;
+    margin: $header-height auto 0;
+}
+
+@media (max-width: ($max-width + $big-space)) {
+
+    .app-wrapper,
+    .admin-wrapper {
+        max-width: $max-width-small;
+    }
+}
+
+.page-header-wrapper {
+    margin-bottom: $medium-space;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+        font-size: $big-text;
+        font-weight: $font-weight-bold;
+        text-align: center;
+        border-bottom: $border-width $border-style $primary-color;
+        margin-bottom: $small-space;
+    }
+
+    .desc {
+        font-size: $small-text;
+        text-align: center;
+        max-width: $medium-width;
+    }
+}
+
+.layout-news-products-wrapper {
+    margin-top: $medium-space + $header-height;
+    margin-bottom: $medium-space;
+
+    .container {
+        background: $secondary-color;
+        border: $border-width $border-style $primary-color;
+        border-radius: $border-small-radius;
+    }
+}

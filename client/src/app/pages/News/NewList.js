@@ -1,9 +1,21 @@
+import React, { useState, useEffect } from 'react'
+import { apiNewsRead } from '../../../services'
 import moment from 'moment'
 
-function NewsList({ data }) {
+function NewsList() {
+    const [allNews, setAllNews] = useState([])
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    const fetchData = async () => {
+        const res = await apiNewsRead()
+        setAllNews(res.allNews)
+    }
+
     return (
-        <div className='news-list'>
-            {data.map((item, index) => {
+        <div className='news-list-wrapper'>
+            {allNews.map((item, index) => {
                 const date = moment(item.updatedAt).subtract(10, 'days').calendar()
 
                 return <div key={index} className='news-item'>
