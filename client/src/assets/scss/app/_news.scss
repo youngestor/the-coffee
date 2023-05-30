@@ -69,8 +69,8 @@
             padding: $small-space;
 
             img {
-                width: 100%;
-                height: 66.67%;
+                width: $max-img-width;
+                height: $max-img-height;
             }
 
             .bulletin {

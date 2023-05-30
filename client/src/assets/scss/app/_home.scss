@@ -4,7 +4,7 @@
 
     .banner-img {
         display: block;
-        width: 100%;
+        width: $max-img-width;
         height: auto;
         border: $small-space $border-style $primary-color;
         border-radius: $border-small-radius;
