@@ -1,1 +1,2 @@
-export * from "./dataHeader";
+export * from "./dataHeader"
+export * from "./dataDetailProduct"

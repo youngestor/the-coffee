@@ -2,11 +2,21 @@ import PageHeader from "../../components/PageHeader";
 import Banner from '../../../../src/assets/images/banner.png'
 import ProductList from "../Products/ProductList";
 import NewsList from '../News/NewList'
+import { Link } from 'react-router-dom'
+import { path } from "../../../utils";
 
 function Home() {
     return (
         <div className='home-wrapper'>
-            <img className='banner-img' src={Banner} alt='' />
+            <div className="banner-img">
+                <img src={Banner} alt='' />
+                <div className="btn-products">
+                    <Link to={path.PRODUCTS}>Sản phẩm</Link>
+                </div>
+                <div className="btn-news">
+                    <Link to={path.NEWS}>Tin tức</Link>
+                </div>
+            </div>
             <div className="spacing"></div>
             <div className='home-products'>
                 <PageHeader

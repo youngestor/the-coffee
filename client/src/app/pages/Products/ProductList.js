@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { apiProductRead } from '../../../services'
+import { Link } from 'react-router-dom'
+import { path } from '../../../utils'
 
 function ProductList() {
     const [allProducts, setAllProducts] = useState([])
@@ -15,7 +17,7 @@ function ProductList() {
     return (
         <div className='product-list-wrapper'>
             {allProducts.map((item, index) => {
-                return <div key={index} className='product-item'>
+                return <Link to={`${path.PRODUCTS}/${item.slug}`} state={item} key={index} className='product-item'>
                     <img src={item.image} alt='' />
                     <div className='bulletin'>
                         <div className='name'>
@@ -25,7 +27,7 @@ function ProductList() {
                             {item.price}
                         </div>
                     </div>
-                </div>
+                </Link>
             })}
         </div>
     );

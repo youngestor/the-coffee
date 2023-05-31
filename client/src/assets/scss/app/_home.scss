@@ -3,11 +3,57 @@
     margin-bottom: $medium-space;
 
     .banner-img {
-        display: block;
-        width: $max-img-width;
-        height: auto;
-        border: $small-space $border-style $primary-color;
-        border-radius: $border-small-radius;
+        position: relative;
+        overflow: hidden;
+
+        img {
+            display: block;
+            width: $max-img-width;
+            height: auto;
+            border: $small-space $border-style $primary-color;
+            border-radius: $border-small-radius;
+            transform: scale(1);
+            transition: $transition;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        .btn-products,
+        .btn-news {
+            position: absolute;
+            bottom: $big-space;
+            color: $white-color;
+            border: $border-width $border-style $primary-color;
+            border-radius: $border-medium-radius;
+            padding: $small-space $medium-space;
+            background: $secondary-color;
+            font-weight: $font-weight-bold;
+            font-size: $medium-text;
+
+            &:hover {
+                background: $primary-color;
+                cursor: pointer;
+                transition: $transition;
+
+                a {
+                    color: $white-color;
+                }
+            }
+
+            a {
+                color: $black-color;
+            }
+        }
+
+        .btn-products {
+            left: $big-space;
+        }
+
+        .btn-news {
+            right: $big-space;
+        }
     }
 
     .home-products {
@@ -32,5 +78,27 @@
         border-radius: $border-small-radius;
         background: $white-color;
         color: $black-color;
+    }
+}
+
+@media (max-width: ($mobile-width)) {
+    .home-wrapper {
+        .banner-img {
+
+            .btn-products,
+            .btn-news {
+                bottom: $medium-space;
+                padding: 0 $small-space;
+                border-radius: $border-small-radius;
+            }
+
+            .btn-products {
+                left: $medium-space;
+            }
+
+            .btn-news {
+                right: $medium-space;
+            }
+        }
     }
 }

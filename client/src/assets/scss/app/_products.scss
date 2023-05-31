@@ -6,14 +6,20 @@
         flex: 25%;
         max-width: 25%;
         padding: $medium-space;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        color: $black-color;
+
+        &:hover {
+            background: $primary-color;
+            color: $white-color;
+            cursor: pointer;
+            transition: $transition;
+        }
 
         img {
             display: block;
             width: $max-img-width;
             height: $max-img-width;
+            max-height: $big-img-height;
             object-fit: $object-fit;
             border-radius: $border-medium-radius;
             border: $border-width $border-style $primary-color;
