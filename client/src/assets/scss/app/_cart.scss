@@ -1,0 +1,107 @@
+.cart-list-wrapper {
+    .empty-cart {
+        font-size: $big-text;
+        font-weight: $font-weight-bold;
+        text-align: center;
+        margin: $big-space 0;
+    }
+
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        padding: $medium-space;
+        border-bottom: $border-width $border-style $primary-color;
+
+        .product-info {
+            display: flex;
+            gap: $medium-space;
+            flex: 60%;
+
+            .default {
+                flex: 40%;
+
+                img {
+                    display: block;
+                    width: $small-img-width;
+                    height: $small-img-height;
+                    object-fit: $object-fit;
+                    border-radius: $border-small-radius;
+                    border: $border-width $border-style $primary-color;
+                }
+
+                .name {
+                    font-weight: $font-weight-bold;
+                    margin-top: $small-space;
+                }
+            }
+
+            .options {
+                flex: 60%;
+
+                .title {
+                    font-weight: $font-weight-bold;
+                    line-height: $big-text;
+                }
+
+                .item-topping {
+                    font-size: $small-text;
+                }
+            }
+        }
+
+        .total {
+            flex: 40%;
+            display: flex;
+            justify-content: space-between;
+
+            .quantity {
+                font-weight: $font-weight-bold;
+
+                span {
+                    font-size: $medium-text;
+                }
+
+                i {
+                    margin: 0 $small-space;
+
+                    &:hover {
+                        color: $primary-color;
+                        cursor: pointer;
+                        transition: $transition;
+                        user-select: none;
+                    }
+                }
+            }
+
+            .price-total {
+                font-weight: $font-weight-bold;
+            }
+
+            .btn-delete:hover {
+                color: $primary-color;
+                cursor: pointer;
+                transition: $transition;
+            }
+        }
+    }
+
+    .btn-cart {
+        display: block;
+        font-size: $medium-text;
+        font-weight: $font-weight-bold;
+        background: $white-color;
+        padding: $small-space $medium-space;
+        width: fit-content;
+        margin: $small-space auto;
+        color: $black-color;
+        border: $border-width $border-style $primary-color;
+        border-radius: $border-medium-radius;
+
+        &:hover {
+            background: $primary-color;
+            color: $white-color;
+            cursor: pointer;
+            transition: $transition;
+        }
+    }
+}

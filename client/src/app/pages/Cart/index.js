@@ -1,22 +1,21 @@
-import { addCart } from '../../../redux/actions'
-import { connect } from 'react-redux'
+import LayoutNewsProducts from '../../components/LayoutNewsProducts'
+import PageHeader from '../../components/PageHeader'
+import CardList from './CardList'
 
-function Cart({ cart, addCart }) {
-    console.log(cart, addCart);
-
+function Cart() {
     return (
-        <div>
-            Cart page
-        </div>
+        <LayoutNewsProducts
+            pageHeader={
+                <PageHeader
+                    title='Giỏ hàng'
+                    desc=''
+                />
+            }
+            container={
+                <CardList />
+            }
+        />
     );
 }
 
-const mapStateToProps = state => ({
-    cart: state.cart.cartAt,
-})
-
-const mapActionsToProps = {
-    addCart,
-}
-
-export default connect(mapStateToProps, mapActionsToProps)(Cart)
+export default Cart

@@ -24,7 +24,7 @@ function Header() {
                         {dataHeader && dataHeader.map((item, index) => <NavLink key={index} onClick={() => setMenu(false)}
                             to={item.path} className='right-item'>{item.name}</NavLink>)}
                         <div className='right-btn'>
-                            <Link to={path.ADMIN}>
+                            <Link to={path.CART}>
                                 <span>Giỏ hàng</span>
                                 <i className="fa-solid fa-cart-shopping"></i>
                             </Link>

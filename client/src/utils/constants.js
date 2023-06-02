@@ -4,6 +4,7 @@ export const path = {
     PRODUCTS: '/products',
     NEWS: '/news',
     CART: '/cart',
+    ORDER: '/order',
 
     ADMIN: '/admin',
 

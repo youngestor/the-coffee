@@ -69,9 +69,9 @@ function ProductDetail({ addCart }) {
                         </div>
                     </div>
                     <div onClick={() => {
-                        const productInfo = { ...product, price: newPrice, size, topping }
-                        console.log(productInfo);
+                        const productInfo = { ...product, total: newPrice, size, topping }
                         addCart(productInfo)
+                        alert('Sản phẩm đã được thêm vào giỏ hàng')
                     }} className='btn-order'>Thêm vào giỏ hàng</div>
                 </div>
             </div>
