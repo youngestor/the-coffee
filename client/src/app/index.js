@@ -10,6 +10,7 @@ import News from './pages/News'
 import Products from './pages/Products'
 import ProductDetail from './pages/Products/ProductDetail'
 import Cart from './pages/Cart'
+import Order from './pages/Order'
 
 
 export default function Page() {
@@ -21,6 +22,7 @@ export default function Page() {
                 <Route path={path.PRODUCTS} element={<Products />} />
                 <Route path={`${path.PRODUCTS}/:slug`} element={<ProductDetail />} />
                 <Route path={path.CART} element={<Cart />} />
+                <Route path={path.ORDER} element={<Order />} />
                 <Route path={path.NEWS} element={<News />} />
                 <Route path={path.ALL} element={<Error />} />
             </Routes>

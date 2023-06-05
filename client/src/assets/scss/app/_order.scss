@@ -1,0 +1,115 @@
+.order-wrapper {
+    margin: $medium-space;
+
+    .title {
+        font-size: $medium-text;
+        font-weight: $font-weight-bold;
+        margin-bottom: $small-space;
+    }
+
+    .form-checkout {
+        display: flex;
+        gap: $medium-space;
+
+        .info {
+            flex: 1;
+
+            .group-input {
+                display: flex;
+                justify-content: space-between;
+                gap: $small-space;
+            }
+
+            label {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+
+                span {
+                    font-size: $small-text;
+                    display: block;
+                    margin-bottom: $small-space;
+                }
+
+                input {
+                    margin-bottom: $medium-space;
+                    border: $border-input-width $border-style $black-color;
+                    padding: $small-space;
+                    transition: $transition;
+                    font-size: $medium-text;
+                    border-radius: $border-small-radius;
+                    width: 100%;
+
+                    &:focus {
+                        border: $border-input-width $border-style $primary-color;
+                    }
+                }
+            }
+        }
+
+        .note {
+            flex: 1;
+            width: 100%;
+
+            span {
+                font-size: $small-text;
+                display: block;
+                margin-bottom: $small-space;
+            }
+
+            textarea {
+                border: $border-input-width $border-style $black-color;
+                padding: $small-space;
+                transition: $transition;
+                font-size: $medium-text;
+                border-radius: $border-small-radius;
+                width: 100%;
+
+                &:focus {
+                    outline: none;
+                    border: $border-input-width $border-style $primary-color;
+                }
+            }
+        }
+    }
+
+    .btn-checkout {
+        font-size: $medium-text;
+        font-weight: $font-weight-bold;
+        color: $black-color;
+        background: $white-color;
+        width: fit-content;
+        border: $border-width $border-style $primary-color;
+        border-radius: $border-medium-radius;
+        padding: $small-space $medium-space;
+        margin-top: $medium-space;
+
+        &:hover {
+            background: $primary-color;
+            color: $white-color;
+            cursor: pointer;
+            transition: $transition;
+        }
+    }
+}
+
+@media (max-width: ($medium-width)) {
+    .order-wrapper {
+        .form-checkout {
+            flex-direction: column;
+        }
+    }
+}
+
+@media (max-width: ($mobile-width)) {
+    .order-wrapper {
+        .form-checkout {
+            .info {
+                .group-input {
+                    flex-direction: column;
+                    gap: unset;
+                }
+            }
+        }
+    }
+}

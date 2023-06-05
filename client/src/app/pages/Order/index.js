@@ -1,20 +1,20 @@
 import LayoutSingle from '../../components/LayoutSingle'
 import PageHeader from '../../components/PageHeader'
-import CardList from './CardList'
+import OrderList from './OrderList'
 
-function Cart() {
+function Order() {
     return (
         <LayoutSingle
             pageHeader={
                 <PageHeader
-                    title='Giỏ hàng'
+                    title='Thanh toán'
                 />
             }
             container={
-                <CardList />
+                <OrderList />
             }
         />
     );
 }
 
-export default Cart
+export default Order;

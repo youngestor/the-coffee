@@ -1,10 +1,10 @@
 import React from 'react'
-import { addCart } from '../../../redux/actions'
+import { addCart, deleteCart } from '../../../redux/actions'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { path } from '../../../utils'
 
-function CartList({ cart, addCart }) {
+function CartList({ cart, addCart, deleteCart }) {
     return (
         <div className='cart-list-wrapper'>
             <div>
@@ -45,7 +45,11 @@ function CartList({ cart, addCart }) {
                                 Tổng cộng: {totalPrice}
                             </div>
                             <div>
-                                <i className="fa-solid fa-trash btn-delete"></i>
+                                <i onClick={() => {
+                                    if (window.confirm("Xóa sản phẩm ra khỏi giỏ hàng?")) {
+                                        deleteCart(item)
+                                    }
+                                }} className="fa-solid fa-trash btn-delete"></i>
                             </div>
                         </div>
                     </div>
@@ -66,6 +70,7 @@ const mapStateToProps = state => ({
 
 const mapActionsToProps = {
     addCart,
+    deleteCart,
 }
 
 export default connect(mapStateToProps, mapActionsToProps)(CartList)

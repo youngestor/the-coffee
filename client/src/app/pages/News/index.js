@@ -1,10 +1,10 @@
-import LayoutNewsProducts from '../../components/LayoutNewsProducts';
+import LayoutSingle from '../../components/LayoutSingle';
 import PageHeader from '../../components/PageHeader'
 import NewsList from "./NewList";
 
 function News() {
     return (
-        <LayoutNewsProducts
+        <LayoutSingle
             pageHeader={
                 <PageHeader
                     title='Tin tức'

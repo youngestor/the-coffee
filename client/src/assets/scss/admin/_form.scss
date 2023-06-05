@@ -15,16 +15,16 @@
             margin: $medium-space 0;
 
             input {
-                border: $border-width $border-style $black-color;
+                border: $border-input-width $border-style $black-color;
                 padding: $small-space;
                 transition: $transition;
                 font-size: $medium-text;
                 border-radius: $border-small-radius;
                 width: 100%;
-                max-width: 400px;
+                max-width: $mobile-width;
 
                 &:focus {
-                    border: $border-width $border-style $primary-color;
+                    border: $border-input-width $border-style $primary-color;
                 }
             }
 
@@ -33,7 +33,7 @@
             }
 
             .file-upload {
-                border: $border-width $border-style $black-color;
+                border: $border-input-width $border-style $black-color;
                 display: inline-block;
                 padding: $small-space $medium-space;
                 color: $black-color;

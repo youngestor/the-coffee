@@ -1,6 +1,6 @@
-function LayoutNewsProducts({ pageHeader, container }) {
+function LayoutSingle({ pageHeader, container }) {
     return (
-        <div className='layout-news-products-wrapper'>
+        <div className='layout-single-wrapper'>
             {pageHeader}
             <div className='container'>
                 {container}
@@ -9,4 +9,4 @@ function LayoutNewsProducts({ pageHeader, container }) {
     );
 }
 
-export default LayoutNewsProducts;
+export default LayoutSingle;

@@ -29,6 +29,16 @@ const cartReducer = (state = initState, action) => {
                     cartAt: [...newCart]
                 }
             }
+        case actionTypes.DELETE_CART:
+            const newCart = state.cartAt
+            const productIndex = newCart.findIndex(
+                product => product._id === action.item._id
+            )
+            newCart.splice(productIndex, 1)
+            return {
+                ...state,
+                cartAt: [...newCart]
+            }
         default:
             return state
     }

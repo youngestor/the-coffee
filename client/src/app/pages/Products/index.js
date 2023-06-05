@@ -1,10 +1,10 @@
-import LayoutNewsProducts from '../../components/LayoutNewsProducts';
+import LayoutSingle from '../../components/LayoutSingle';
 import PageHeader from "../../components/PageHeader";
 import ProductList from "./ProductList";
 
 function Products() {
     return (
-        <LayoutNewsProducts
+        <LayoutSingle
             pageHeader={
                 <PageHeader
                     title='Sản phẩm'

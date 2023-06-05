@@ -105,3 +105,37 @@
         }
     }
 }
+
+@media (max-width: ($max-width + $big-space)) {
+    .cart-list-wrapper {
+        .cart-item {
+            .total {
+                flex-direction: column;
+                flex: unset;
+            }
+        }
+    }
+}
+
+@media (max-width: ($medium-width)) {
+    .cart-list-wrapper {
+        .cart-item {
+            .product-info {
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+@media (max-width: ($mobile-width)) {
+    .cart-list-wrapper {
+        .cart-item {
+            flex-direction: column;
+            gap: $medium-space;
+
+            .total {
+                gap: $small-space;
+            }
+        }
+    }
+}

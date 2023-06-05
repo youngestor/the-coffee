@@ -1,0 +1,31 @@
+.error-wrapper {
+    div {
+        font-size: $big-text;
+        font-weight: $font-weight-bold;
+        text-align: center;
+        margin: $big-space 0;
+    }
+
+    a {
+        display: block;
+        font-size: $medium-text;
+        font-weight: $font-weight-bold;
+        background: $white-color;
+        padding: $small-space $medium-space;
+        width: fit-content;
+        margin: $small-space auto;
+        color: $black-color;
+        border: $border-width $border-style $primary-color;
+        border-radius: $border-medium-radius;
+
+        &:hover {
+            background: $primary-color;
+            color: $white-color;
+            transition: $transition;
+        }
+
+        i {
+            margin-left: $small-space;
+        }
+    }
+}
